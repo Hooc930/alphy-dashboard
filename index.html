@@ -13,15 +13,11 @@
         *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
         body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;min-height:-webkit-fill-available;overflow-x:hidden}
         .app{display:flex;flex-direction:column;min-height:100vh;min-height:-webkit-fill-available;padding-top:var(--safe-top);padding-bottom:calc(80px + var(--safe-bottom))}
-        
-        /* iOS Header */
         .header{position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);padding:12px 20px 12px;border-bottom:0.5px solid var(--separator)}
         .header-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
         .header-title{font-size:34px;font-weight:700;letter-spacing:-0.5px}
         .header-icon{font-size:28px}
         .header-subtitle{font-size:13px;color:var(--text-secondary)}
-        
-        /* Live Status Card */
         .live-card{margin:16px;padding:16px;background:linear-gradient(135deg,#1c1c1e 0%,#2c2c2e 100%);border-radius:var(--card-radius);border:0.5px solid var(--separator)}
         .live-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
         .live-dot{width:8px;height:8px;background:var(--accent-green);border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 8px var(--accent-green)}
@@ -29,21 +25,15 @@
         .live-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--accent-green)}
         .live-title{font-size:17px;font-weight:600}
         .live-meta{font-size:13px;color:var(--text-secondary);margin-top:4px}
-        
-        /* Stats Row */
         .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 16px 16px}
         .stat-item{background:var(--bg-secondary);border-radius:var(--card-radius);padding:14px 8px;text-align:center}
         .stat-value{font-size:24px;font-weight:700;color:var(--text)}
         .stat-label{font-size:10px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.3px;margin-top:4px}
-        
-        /* Content Sections */
         .content{padding:0 16px}
         .section{margin-bottom:24px}
         .section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding:0 4px}
         .section-title{font-size:20px;font-weight:700}
         .section-action{font-size:15px;color:var(--accent)}
-        
-        /* iOS List Style */
         .list-card{background:var(--bg-secondary);border-radius:var(--card-radius);overflow:hidden}
         .list-item{display:flex;align-items:center;padding:14px 16px;border-bottom:0.5px solid var(--separator);gap:14px;transition:background 0.15s}
         .list-item:last-child{border-bottom:none}
@@ -63,48 +53,33 @@
         .badge-progress{background:rgba(255,159,10,0.15);color:var(--accent-orange)}
         .badge-pending{background:rgba(10,132,255,0.15);color:var(--accent)}
         .badge-idea{background:rgba(191,90,242,0.15);color:var(--accent-purple)}
-        
-        /* Tab Bar */
         .tab-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(28,28,30,0.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-top:0.5px solid var(--separator);display:flex;padding:8px 0 calc(8px + var(--safe-bottom));z-index:100}
         .tab-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:4px;cursor:pointer}
         .tab-icon{font-size:24px;opacity:0.5;transition:opacity 0.2s}
         .tab-label{font-size:10px;color:var(--text-secondary);font-weight:500}
         .tab-item.active .tab-icon{opacity:1}
         .tab-item.active .tab-label{color:var(--accent)}
-        
-        /* Pages */
         .page{display:none}
         .page.active{display:block}
-        
-        /* Business Cards */
-        .biz-card{background:var(--bg-secondary);border-radius:var(--card-radius);padding:16px;margin-bottom:12px}
+        .biz-card{background:var(--bg-secondary);border:1px solid var(--separator);border-radius:var(--card-radius);padding:16px;margin-bottom:12px}
         .biz-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
         .biz-name{font-size:17px;font-weight:600}
         .biz-type{font-size:13px;color:var(--text-secondary);margin-bottom:12px}
         .biz-stats{display:flex;gap:12px}
         .biz-stat{font-size:12px;color:var(--text-secondary)}
         .biz-stat strong{color:var(--text)}
-        
-        /* Empty State */
-        .empty-state{text-align:center;padding:40px 20px;color:var(--text-secondary)}
-        .empty-icon{font-size:48px;margin-bottom:12px;opacity:0.5}
-        .empty-title{font-size:17px;font-weight:600;color:var(--text);margin-bottom:4px}
-        .empty-subtitle{font-size:13px}
-        
-        /* Progress Ring */
         .progress-mini{width:32px;height:32px;border-radius:50%;background:conic-gradient(var(--accent-green) calc(var(--p)*1%),var(--bg-tertiary) 0);display:flex;align-items:center;justify-content:center}
         .progress-mini::after{content:'';width:24px;height:24px;background:var(--bg-secondary);border-radius:50%}
     </style>
 </head>
 <body>
     <div class="app">
-        <!-- Header -->
         <div class="header">
             <div class="header-top">
                 <div class="header-title" id="header-title">Dashboard</div>
                 <div class="header-icon">🤘</div>
             </div>
-            <div class="header-subtitle">Last updated: Jan 30, 2026 • 12:50 UTC</div>
+            <div class="header-subtitle">Last updated: Jan 30, 2026 • 13:13 UTC</div>
         </div>
 
         <!-- DASHBOARD PAGE -->
@@ -112,15 +87,15 @@
             <div class="live-card">
                 <div class="live-header">
                     <div class="live-dot"></div>
-                    <span class="live-label">Working Now</span>
+                    <span class="live-label">Just Completed</span>
                 </div>
-                <div class="live-title">Mobile-first iOS Dashboard Redesign</div>
-                <div class="live-meta">Making it feel native Swift-like</div>
+                <div class="live-title">Whisper Audio Transcription Setup</div>
+                <div class="live-meta">Voice messages now work! Send one to test.</div>
             </div>
             
             <div class="stats-row">
                 <div class="stat-item"><div class="stat-value">2</div><div class="stat-label">Active</div></div>
-                <div class="stat-item"><div class="stat-value">6</div><div class="stat-label">Done</div></div>
+                <div class="stat-item"><div class="stat-value">9</div><div class="stat-label">Done</div></div>
                 <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">Ideas</div></div>
                 <div class="stat-item"><div class="stat-value">4</div><div class="stat-label">Days</div></div>
             </div>
@@ -132,10 +107,10 @@
                         <div class="section-action">See All</div>
                     </div>
                     <div class="list-card">
-                        <div class="list-item"><div class="list-icon orange">📱</div><div class="list-content"><div class="list-title">iOS Dashboard Redesign</div><div class="list-subtitle">Mobile-first, Swift native feel</div></div><span class="list-badge badge-progress">Now</span></div>
+                        <div class="list-item"><div class="list-icon green">🎙️</div><div class="list-content"><div class="list-title">Whisper Transcription Installed</div><div class="list-subtitle">Local CLI for voice messages</div></div><span class="list-badge badge-done">Done</span></div>
+                        <div class="list-item"><div class="list-icon green">📱</div><div class="list-content"><div class="list-title">iOS Dashboard Design</div><div class="list-subtitle">Mobile-first, Swift native feel</div></div><span class="list-badge badge-done">Done</span></div>
                         <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">GitHub Pages Deploy</div><div class="list-subtitle">Dashboard live at hooc930.github.io</div></div><span class="list-badge badge-done">Done</span></div>
                         <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">Working Agreement</div><div class="list-subtitle">Defined autonomous work rules</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">Bedrock Model Switch</div><div class="list-subtitle">Now using Claude Opus via AWS</div></div><span class="list-badge badge-done">Done</span></div>
                     </div>
                 </div>
                 
@@ -163,20 +138,27 @@
                 <div class="section">
                     <div class="section-header"><div class="section-title">In Progress</div></div>
                     <div class="list-card">
-                        <div class="list-item"><div class="list-icon orange">📱</div><div class="list-content"><div class="list-title">iOS Dashboard Redesign</div><div class="list-subtitle">High Priority • Due Today</div></div><div class="progress-mini" style="--p:80"></div></div>
                         <div class="list-item"><div class="list-icon blue">🔍</div><div class="list-content"><div class="list-title">TryHoox Competitor Research</div><div class="list-subtitle">High Priority • Due Today</div></div><div class="progress-mini" style="--p:0"></div></div>
                         <div class="list-item"><div class="list-icon purple">💎</div><div class="list-content"><div class="list-title">PuravidaTLV Diagnosis</div><div class="list-subtitle">Medium Priority • This Week</div></div><div class="progress-mini" style="--p:0"></div></div>
                     </div>
                 </div>
                 <div class="section">
-                    <div class="section-header"><div class="section-title">Completed</div></div>
+                    <div class="section-header"><div class="section-title">Completed Today</div></div>
+                    <div class="list-card">
+                        <div class="list-item"><div class="list-icon green">🎙️</div><div class="list-content"><div class="list-title">Whisper Transcription Setup</div><div class="list-subtitle">13:13 UTC</div></div><span class="list-badge badge-done">Done</span></div>
+                        <div class="list-item"><div class="list-icon green">📱</div><div class="list-content"><div class="list-title">iOS Dashboard Design</div><div class="list-subtitle">12:55 UTC</div></div><span class="list-badge badge-done">Done</span></div>
+                        <div class="list-item"><div class="list-icon green">📊</div><div class="list-content"><div class="list-title">Advanced Dashboard (Monday-style)</div><div class="list-subtitle">12:17 UTC</div></div><span class="list-badge badge-done">Done</span></div>
+                        <div class="list-item"><div class="list-icon green">🌐</div><div class="list-content"><div class="list-title">GitHub Pages Deploy</div><div class="list-subtitle">12:10 UTC</div></div><span class="list-badge badge-done">Done</span></div>
+                        <div class="list-item"><div class="list-icon green">📝</div><div class="list-content"><div class="list-title">Working Agreement Created</div><div class="list-subtitle">11:50 UTC</div></div><span class="list-badge badge-done">Done</span></div>
+                        <div class="list-item"><div class="list-icon green">👤</div><div class="list-content"><div class="list-title">User Profile Updated</div><div class="list-subtitle">11:48 UTC</div></div><span class="list-badge badge-done">Done</span></div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-header"><div class="section-title">Completed Earlier</div></div>
                     <div class="list-card">
                         <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">Telegram Connection</div><div class="list-subtitle">Jan 27</div></div><span class="list-badge badge-done">Done</span></div>
                         <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">Brave Search API</div><div class="list-subtitle">Jan 27</div></div><span class="list-badge badge-done">Done</span></div>
                         <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">Security Review</div><div class="list-subtitle">Jan 28</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">Amazon Bedrock Setup</div><div class="list-subtitle">Jan 30</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">GitHub Pages Deploy</div><div class="list-subtitle">Jan 30</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">Working Agreement</div><div class="list-subtitle">Jan 30</div></div><span class="list-badge badge-done">Done</span></div>
                     </div>
                 </div>
             </div>
@@ -202,15 +184,16 @@
                 <div class="section">
                     <div class="section-header"><div class="section-title">All Activity</div></div>
                     <div class="list-card">
-                        <div class="list-item"><div class="list-icon orange">📱</div><div class="list-content"><div class="list-title">iOS Dashboard Redesign</div><div class="list-subtitle">12:50 UTC • In Progress</div></div></div>
-                        <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">Advanced Dashboard Deploy</div><div class="list-subtitle">12:15 UTC</div></div></div>
-                        <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">GitHub Pages Setup</div><div class="list-subtitle">12:10 UTC</div></div></div>
-                        <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">Working Agreement Created</div><div class="list-subtitle">11:50 UTC</div></div></div>
-                        <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">User Profile Updated</div><div class="list-subtitle">11:48 UTC</div></div></div>
-                        <div class="list-item"><div class="list-icon blue">🔍</div><div class="list-content"><div class="list-title">Bedrock Billing Research</div><div class="list-subtitle">11:06 UTC</div></div></div>
-                        <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">Bedrock Model Confirmed</div><div class="list-subtitle">11:05 UTC</div></div></div>
-                        <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">Security Guide Review</div><div class="list-subtitle">Jan 28 • 19:57 UTC</div></div></div>
-                        <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">Initial Telegram Pairing</div><div class="list-subtitle">Jan 27 • 22:07 UTC</div></div></div>
+                        <div class="list-item"><div class="list-icon green">🎙️</div><div class="list-content"><div class="list-title">Whisper Transcription Configured</div><div class="list-subtitle">13:13 UTC • Clawdbot restarted</div></div></div>
+                        <div class="list-item"><div class="list-icon blue">📦</div><div class="list-content"><div class="list-title">Base Model Downloaded</div><div class="list-subtitle">13:10 UTC • 141MB ggml-base.bin</div></div></div>
+                        <div class="list-item"><div class="list-icon blue">🔨</div><div class="list-content"><div class="list-title">Whisper.cpp Built</div><div class="list-subtitle">13:08 UTC • Compiled from source</div></div></div>
+                        <div class="list-item"><div class="list-icon blue">📥</div><div class="list-content"><div class="list-title">Build Tools Installed</div><div class="list-subtitle">13:05 UTC • cmake, ffmpeg, gcc</div></div></div>
+                        <div class="list-item"><div class="list-icon green">📱</div><div class="list-content"><div class="list-title">iOS Dashboard Deployed</div><div class="list-subtitle">12:55 UTC</div></div></div>
+                        <div class="list-item"><div class="list-icon green">📊</div><div class="list-content"><div class="list-title">Advanced Dashboard Deploy</div><div class="list-subtitle">12:17 UTC</div></div></div>
+                        <div class="list-item"><div class="list-icon green">🌐</div><div class="list-content"><div class="list-title">GitHub Pages Setup</div><div class="list-subtitle">12:10 UTC</div></div></div>
+                        <div class="list-item"><div class="list-icon green">📝</div><div class="list-content"><div class="list-title">Working Agreement Created</div><div class="list-subtitle">11:50 UTC</div></div></div>
+                        <div class="list-item"><div class="list-icon green">👤</div><div class="list-content"><div class="list-title">User Profile Updated</div><div class="list-subtitle">11:48 UTC</div></div></div>
+                        <div class="list-item"><div class="list-icon green">☁️</div><div class="list-content"><div class="list-title">Bedrock Model Confirmed</div><div class="list-subtitle">11:05 UTC</div></div></div>
                     </div>
                 </div>
             </div>
@@ -225,6 +208,7 @@
                         <div class="list-item"><div class="list-icon blue">🤖</div><div class="list-content"><div class="list-title">Model</div><div class="list-subtitle">Claude Opus 4.5 via Bedrock</div></div></div>
                         <div class="list-item"><div class="list-icon green">💬</div><div class="list-content"><div class="list-title">Channel</div><div class="list-subtitle">Telegram</div></div></div>
                         <div class="list-item"><div class="list-icon orange">🔍</div><div class="list-content"><div class="list-title">Search</div><div class="list-subtitle">Brave API Active</div></div></div>
+                        <div class="list-item"><div class="list-icon purple">🎙️</div><div class="list-content"><div class="list-title">Audio</div><div class="list-subtitle">Whisper.cpp (base model)</div></div></div>
                     </div>
                 </div>
                 <div class="section">
@@ -236,7 +220,6 @@
             </div>
         </div>
 
-        <!-- Tab Bar -->
         <div class="tab-bar">
             <div class="tab-item active" onclick="showPage('dashboard')"><div class="tab-icon">🏠</div><div class="tab-label">Home</div></div>
             <div class="tab-item" onclick="showPage('tasks')"><div class="tab-icon">✅</div><div class="tab-label">Tasks</div></div>
