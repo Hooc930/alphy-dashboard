@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphy Operations Dashboard</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);min-height:100vh;color:#fff;padding:20px}.header{text-align:center;margin-bottom:30px;padding:20px;background:rgba(255,255,255,0.05);border-radius:15px;border:1px solid rgba(255,255,255,0.1)}.header h1{font-size:2.5em;margin-bottom:10px}.header .emoji{font-size:3em}.header .subtitle{color:#888;font-size:1.1em}.last-updated{color:#4ade80;font-size:0.9em;margin-top:10px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:20px;max-width:1400px;margin:0 auto}.card{background:rgba(255,255,255,0.05);border-radius:15px;padding:20px;border:1px solid rgba(255,255,255,0.1)}.card h2{font-size:1.3em;margin-bottom:15px;display:flex;align-items:center;gap:10px}.card h2 .icon{font-size:1.5em}.task-list{list-style:none}.task-item{padding:12px;margin-bottom:10px;background:rgba(255,255,255,0.03);border-radius:8px;border-left:4px solid #666}.task-item.completed{border-left-color:#4ade80;opacity:0.7}.task-item.in-progress{border-left-color:#fbbf24}.task-item.pending{border-left-color:#60a5fa}.task-item.idea{border-left-color:#a78bfa}.task-title{font-weight:600;margin-bottom:5px}.task-meta{font-size:0.85em;color:#888}.status-badge{display:inline-block;padding:3px 8px;border-radius:12px;font-size:0.75em;font-weight:600;text-transform:uppercase}.status-completed{background:#166534;color:#4ade80}.status-in-progress{background:#854d0e;color:#fbbf24}.status-pending{background:#1e40af;color:#60a5fa}.status-idea{background:#5b21b6;color:#a78bfa}.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.metric{background:rgba(255,255,255,0.03);padding:15px;border-radius:8px;text-align:center}.metric-value{font-size:2em;font-weight:700;color:#4ade80}.metric-label{font-size:0.85em;color:#888}.idea-item{padding:12px;margin-bottom:10px;background:linear-gradient(135deg,rgba(167,139,250,0.1) 0%,rgba(139,92,246,0.05) 100%);border-radius:8px;border:1px solid rgba(167,139,250,0.2)}.idea-title{font-weight:600;margin-bottom:5px}.idea-impact{font-size:0.85em;color:#a78bfa}.empty-state{text-align:center;padding:30px;color:#666}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="emoji">🤘</div>
+        <h1>Alphy Operations Dashboard</h1>
+        <div class="subtitle">Autonomous Work Tracker for Idan Barel</div>
+        <div class="last-updated">Last Updated: 2026-01-30 11:55 UTC</div>
+    </div>
+    <div class="grid">
+        <div class="card">
+            <h2><span class="icon">⚡</span> Active Tasks</h2>
+            <ul class="task-list">
+                <li class="task-item completed"><div class="task-title">Build Operations Dashboard</div><div class="task-meta"><span class="status-badge status-completed">Completed</span> 2026-01-30</div></li>
+                <li class="task-item pending"><div class="task-title">Research TryHoox Competitors (Israel)</div><div class="task-meta"><span class="status-badge status-pending">Pending</span> Priority: High</div></li>
+                <li class="task-item pending"><div class="task-title">Diagnose PuravidaTLV Underperformance</div><div class="task-meta"><span class="status-badge status-pending">Pending</span> Priority: Medium</div></li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2><span class="icon">✅</span> Completed Tasks</h2>
+            <ul class="task-list">
+                <li class="task-item completed"><div class="task-title">Setup Telegram Connection</div><div class="task-meta"><span class="status-badge status-completed">Completed</span> 2026-01-27</div></li>
+                <li class="task-item completed"><div class="task-title">Configure Brave Search API</div><div class="task-meta"><span class="status-badge status-completed">Completed</span> 2026-01-27</div></li>
+                <li class="task-item completed"><div class="task-title">Security Review & SOUL.md Update</div><div class="task-meta"><span class="status-badge status-completed">Completed</span> 2026-01-27</div></li>
+                <li class="task-item completed"><div class="task-title">Switch to Amazon Bedrock (Claude Opus)</div><div class="task-meta"><span class="status-badge status-completed">Completed</span> 2026-01-30</div></li>
+                <li class="task-item completed"><div class="task-title">Create USER.md & WORKING_AGREEMENT.md</div><div class="task-meta"><span class="status-badge status-completed">Completed</span> 2026-01-30</div></li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2><span class="icon">💡</span> Ideas & Opportunities</h2>
+            <div class="idea-item"><div class="idea-title">Cold Outreach to Israeli E-commerce Sites</div><div class="idea-impact">Impact: Could generate 5-10 TryHoox leads</div></div>
+            <div class="idea-item"><div class="idea-title">Create Case Study Template for TryHoox</div><div class="idea-impact">Impact: Social proof for sales conversations</div></div>
+            <div class="idea-item"><div class="idea-title">Automate Competitor Price Monitoring (PuravidaTLV)</div><div class="idea-impact">Impact: Stay competitive without manual checks</div></div>
+        </div>
+        <div class="card">
+            <h2><span class="icon">📊</span> Quick Stats</h2>
+            <div class="metric-grid">
+                <div class="metric"><div class="metric-value">2</div><div class="metric-label">Tasks Pending</div></div>
+                <div class="metric"><div class="metric-value">6</div><div class="metric-label">Completed</div></div>
+                <div class="metric"><div class="metric-value">3</div><div class="metric-label">Ideas Queued</div></div>
+                <div class="metric"><div class="metric-value">4</div><div class="metric-label">Days Active</div></div>
+            </div>
+        </div>
+        <div class="card">
+            <h2><span class="icon">💬</span> Client Conversations</h2>
+            <div class="empty-state">No client conversations yet.<br>Will update as outreach begins.</div>
+        </div>
+        <div class="card">
+            <h2><span class="icon">🌙</span> Overnight Work Log</h2>
+            <div class="empty-state">First overnight session pending.<br>Check back tomorrow morning!</div>
+        </div>
+    </div>
+</body>
+</html>
