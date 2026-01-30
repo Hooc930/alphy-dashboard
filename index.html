@@ -7,7 +7,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
     <title>Alphy Ops</title>
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='90' font-size='90'>🤘</text></svg>">
     <style>
         :root{--bg:#000;--bg-secondary:#1c1c1e;--bg-tertiary:#2c2c2e;--bg-elevated:#3a3a3c;--accent:#0a84ff;--accent-green:#30d158;--accent-orange:#ff9f0a;--accent-red:#ff453a;--accent-purple:#bf5af2;--text:#fff;--text-secondary:#8e8e93;--text-tertiary:#636366;--separator:#38383a;--card-radius:13px;--safe-top:env(safe-area-inset-top);--safe-bottom:env(safe-area-inset-bottom)}
         *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
@@ -70,6 +69,10 @@
         .biz-stat strong{color:var(--text)}
         .progress-mini{width:32px;height:32px;border-radius:50%;background:conic-gradient(var(--accent-green) calc(var(--p)*1%),var(--bg-tertiary) 0);display:flex;align-items:center;justify-content:center}
         .progress-mini::after{content:'';width:24px;height:24px;background:var(--bg-secondary);border-radius:50%}
+        .lead-table{width:100%;font-size:13px;border-collapse:collapse}
+        .lead-table th{text-align:left;padding:10px;background:var(--bg-tertiary);color:var(--text-secondary);font-weight:600}
+        .lead-table td{padding:10px;border-bottom:1px solid var(--separator)}
+        .lead-table tr:last-child td{border-bottom:none}
     </style>
 </head>
 <body>
@@ -79,7 +82,7 @@
                 <div class="header-title" id="header-title">Dashboard</div>
                 <div class="header-icon">🤘</div>
             </div>
-            <div class="header-subtitle">Last updated: Jan 30, 2026 • 13:13 UTC</div>
+            <div class="header-subtitle">Last updated: Jan 30, 2026 • 15:20 UTC</div>
         </div>
 
         <!-- DASHBOARD PAGE -->
@@ -89,13 +92,13 @@
                     <div class="live-dot"></div>
                     <span class="live-label">Just Completed</span>
                 </div>
-                <div class="live-title">Whisper Audio Transcription Setup</div>
-                <div class="live-meta">Voice messages now work! Send one to test.</div>
+                <div class="live-title">TryHoox Lead Generation</div>
+                <div class="live-meta">27 Israeli e-commerce leads found, 10 with WhatsApp</div>
             </div>
             
             <div class="stats-row">
-                <div class="stat-item"><div class="stat-value">2</div><div class="stat-label">Active</div></div>
-                <div class="stat-item"><div class="stat-value">9</div><div class="stat-label">Done</div></div>
+                <div class="stat-item"><div class="stat-value">27</div><div class="stat-label">Leads</div></div>
+                <div class="stat-item"><div class="stat-value">10</div><div class="stat-label">Done</div></div>
                 <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">Ideas</div></div>
                 <div class="stat-item"><div class="stat-value">4</div><div class="stat-label">Days</div></div>
             </div>
@@ -107,10 +110,10 @@
                         <div class="section-action">See All</div>
                     </div>
                     <div class="list-card">
-                        <div class="list-item"><div class="list-icon green">🎙️</div><div class="list-content"><div class="list-title">Whisper Transcription Installed</div><div class="list-subtitle">Local CLI for voice messages</div></div><span class="list-badge badge-done">Done</span></div>
+                        <div class="list-item"><div class="list-icon green">🎯</div><div class="list-content"><div class="list-title">Lead Scraping Complete</div><div class="list-subtitle">27 leads, 10 with WhatsApp numbers</div></div><span class="list-badge badge-done">Done</span></div>
+                        <div class="list-item"><div class="list-icon green">🎙️</div><div class="list-content"><div class="list-title">Whisper Transcription</div><div class="list-subtitle">Voice messages now working</div></div><span class="list-badge badge-done">Done</span></div>
                         <div class="list-item"><div class="list-icon green">📱</div><div class="list-content"><div class="list-title">iOS Dashboard Design</div><div class="list-subtitle">Mobile-first, Swift native feel</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">GitHub Pages Deploy</div><div class="list-subtitle">Dashboard live at hooc930.github.io</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">Working Agreement</div><div class="list-subtitle">Defined autonomous work rules</div></div><span class="list-badge badge-done">Done</span></div>
+                        <div class="list-item"><div class="list-icon green">🌐</div><div class="list-content"><div class="list-title">GitHub Pages Deploy</div><div class="list-subtitle">Dashboard live at hooc930.github.io</div></div><span class="list-badge badge-done">Done</span></div>
                     </div>
                 </div>
                 
@@ -121,7 +124,7 @@
                     <div class="biz-card">
                         <div class="biz-header"><div class="biz-name">🔗 TryHoox.com</div><span class="list-badge badge-progress">Validating</span></div>
                         <div class="biz-type">Conversion SaaS • Israeli Market</div>
-                        <div class="biz-stats"><div class="biz-stat"><strong>Promise:</strong> 10% lift or free</div></div>
+                        <div class="biz-stats"><div class="biz-stat"><strong>Leads:</strong> 27 ready for outreach</div></div>
                     </div>
                     <div class="biz-card">
                         <div class="biz-header"><div class="biz-name">💎 PuravidaTLV</div><span class="list-badge badge-pending">Needs Work</span></div>
@@ -138,41 +141,54 @@
                 <div class="section">
                     <div class="section-header"><div class="section-title">In Progress</div></div>
                     <div class="list-card">
-                        <div class="list-item"><div class="list-icon blue">🔍</div><div class="list-content"><div class="list-title">TryHoox Competitor Research</div><div class="list-subtitle">High Priority • Due Today</div></div><div class="progress-mini" style="--p:0"></div></div>
+                        <div class="list-item"><div class="list-icon orange">📞</div><div class="list-content"><div class="list-title">TryHoox Outreach Campaign</div><div class="list-subtitle">27 leads ready to contact</div></div><div class="progress-mini" style="--p:0"></div></div>
                         <div class="list-item"><div class="list-icon purple">💎</div><div class="list-content"><div class="list-title">PuravidaTLV Diagnosis</div><div class="list-subtitle">Medium Priority • This Week</div></div><div class="progress-mini" style="--p:0"></div></div>
                     </div>
                 </div>
                 <div class="section">
                     <div class="section-header"><div class="section-title">Completed Today</div></div>
                     <div class="list-card">
+                        <div class="list-item"><div class="list-icon green">🎯</div><div class="list-content"><div class="list-title">Lead Generation (FB Ads Library)</div><div class="list-subtitle">15:20 UTC • 27 leads found</div></div><span class="list-badge badge-done">Done</span></div>
                         <div class="list-item"><div class="list-icon green">🎙️</div><div class="list-content"><div class="list-title">Whisper Transcription Setup</div><div class="list-subtitle">13:13 UTC</div></div><span class="list-badge badge-done">Done</span></div>
                         <div class="list-item"><div class="list-icon green">📱</div><div class="list-content"><div class="list-title">iOS Dashboard Design</div><div class="list-subtitle">12:55 UTC</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">📊</div><div class="list-content"><div class="list-title">Advanced Dashboard (Monday-style)</div><div class="list-subtitle">12:17 UTC</div></div><span class="list-badge badge-done">Done</span></div>
+                        <div class="list-item"><div class="list-icon green">📊</div><div class="list-content"><div class="list-title">Advanced Dashboard</div><div class="list-subtitle">12:17 UTC</div></div><span class="list-badge badge-done">Done</span></div>
                         <div class="list-item"><div class="list-icon green">🌐</div><div class="list-content"><div class="list-title">GitHub Pages Deploy</div><div class="list-subtitle">12:10 UTC</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">📝</div><div class="list-content"><div class="list-title">Working Agreement Created</div><div class="list-subtitle">11:50 UTC</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">👤</div><div class="list-content"><div class="list-title">User Profile Updated</div><div class="list-subtitle">11:48 UTC</div></div><span class="list-badge badge-done">Done</span></div>
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="section-header"><div class="section-title">Completed Earlier</div></div>
-                    <div class="list-card">
-                        <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">Telegram Connection</div><div class="list-subtitle">Jan 27</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">Brave Search API</div><div class="list-subtitle">Jan 27</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">✅</div><div class="list-content"><div class="list-title">Security Review</div><div class="list-subtitle">Jan 28</div></div><span class="list-badge badge-done">Done</span></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- IDEAS PAGE -->
-        <div class="page" id="page-ideas">
+        <!-- LEADS PAGE -->
+        <div class="page" id="page-leads">
             <div class="content" style="padding-top:16px">
                 <div class="section">
-                    <div class="section-header"><div class="section-title">Opportunities</div></div>
+                    <div class="section-header"><div class="section-title">TryHoox Leads (10 with WhatsApp)</div></div>
+                    <div class="list-card" style="overflow-x:auto">
+                        <table class="lead-table">
+                            <thead><tr><th>Business</th><th>WhatsApp</th><th>Category</th></tr></thead>
+                            <tbody>
+                                <tr><td>קבוצת הנמל</td><td>052-253-0202</td><td>Furniture</td></tr>
+                                <tr><td>Adi Nails</td><td>054-429-6485</td><td>Cosmetics</td></tr>
+                                <tr><td>Ponponi פונפוני</td><td>052-241-8573</td><td>Kids Decor</td></tr>
+                                <tr><td>חיות אונליין</td><td>055-502-8290</td><td>Pet Supplies</td></tr>
+                                <tr><td>דליה ארמוני</td><td>052-274-7681</td><td>Furniture</td></tr>
+                                <tr><td>אימפריה מיטות</td><td>072-322-2790</td><td>Kids Furniture</td></tr>
+                                <tr><td>Oded גלריה</td><td>wa.me link</td><td>Home Design</td></tr>
+                                <tr><td>ד"ר קאוץ'</td><td>WhatsApp btn</td><td>Furniture</td></tr>
+                                <tr><td>במבו רהיטים</td><td>WhatsApp widget</td><td>Furniture</td></tr>
+                                <tr><td>Sivan קוסמטיקס</td><td>WhatsApp btn</td><td>Cosmetics</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-header"><div class="section-title">Categories Found</div></div>
                     <div class="list-card">
-                        <div class="list-item"><div class="list-icon purple">🎯</div><div class="list-content"><div class="list-title">Cold Outreach to Israeli Sites</div><div class="list-subtitle">5-10 potential TryHoox leads</div></div><span class="list-accessory">›</span></div>
-                        <div class="list-item"><div class="list-icon purple">📄</div><div class="list-content"><div class="list-title">TryHoox Case Study Template</div><div class="list-subtitle">Social proof for sales</div></div><span class="list-accessory">›</span></div>
-                        <div class="list-item"><div class="list-icon purple">🔍</div><div class="list-content"><div class="list-title">Competitor Price Monitor</div><div class="list-subtitle">Auto-track for PuravidaTLV</div></div><span class="list-accessory">›</span></div>
+                        <div class="list-item"><div class="list-icon blue">🛋️</div><div class="list-content"><div class="list-title">Furniture</div><div class="list-subtitle">10 businesses</div></div></div>
+                        <div class="list-item"><div class="list-icon purple">🐾</div><div class="list-content"><div class="list-title">Pet Supplies</div><div class="list-subtitle">5 businesses</div></div></div>
+                        <div class="list-item"><div class="list-icon orange">👶</div><div class="list-content"><div class="list-title">Baby Products</div><div class="list-subtitle">5 businesses</div></div></div>
+                        <div class="list-item"><div class="list-icon green">💄</div><div class="list-content"><div class="list-title">Cosmetics</div><div class="list-subtitle">5 businesses</div></div></div>
+                        <div class="list-item"><div class="list-icon blue">🏠</div><div class="list-content"><div class="list-title">Home Goods</div><div class="list-subtitle">2 businesses</div></div></div>
                     </div>
                 </div>
             </div>
@@ -184,16 +200,15 @@
                 <div class="section">
                     <div class="section-header"><div class="section-title">All Activity</div></div>
                     <div class="list-card">
-                        <div class="list-item"><div class="list-icon green">🎙️</div><div class="list-content"><div class="list-title">Whisper Transcription Configured</div><div class="list-subtitle">13:13 UTC • Clawdbot restarted</div></div></div>
-                        <div class="list-item"><div class="list-icon blue">📦</div><div class="list-content"><div class="list-title">Base Model Downloaded</div><div class="list-subtitle">13:10 UTC • 141MB ggml-base.bin</div></div></div>
-                        <div class="list-item"><div class="list-icon blue">🔨</div><div class="list-content"><div class="list-title">Whisper.cpp Built</div><div class="list-subtitle">13:08 UTC • Compiled from source</div></div></div>
-                        <div class="list-item"><div class="list-icon blue">📥</div><div class="list-content"><div class="list-title">Build Tools Installed</div><div class="list-subtitle">13:05 UTC • cmake, ffmpeg, gcc</div></div></div>
+                        <div class="list-item"><div class="list-icon green">🎯</div><div class="list-content"><div class="list-title">Lead Scraping Complete</div><div class="list-subtitle">15:20 UTC • 27 leads, 10 with WhatsApp</div></div></div>
+                        <div class="list-item"><div class="list-icon blue">🔍</div><div class="list-content"><div class="list-title">FB Ads Library Scraping Started</div><div class="list-subtitle">15:09 UTC • Sub-agent spawned</div></div></div>
+                        <div class="list-item"><div class="list-icon green">🎙️</div><div class="list-content"><div class="list-title">Whisper Transcription Working</div><div class="list-subtitle">13:20 UTC • Fixed audio format issue</div></div></div>
+                        <div class="list-item"><div class="list-icon green">🎙️</div><div class="list-content"><div class="list-title">Whisper Installed & Configured</div><div class="list-subtitle">13:13 UTC</div></div></div>
                         <div class="list-item"><div class="list-icon green">📱</div><div class="list-content"><div class="list-title">iOS Dashboard Deployed</div><div class="list-subtitle">12:55 UTC</div></div></div>
                         <div class="list-item"><div class="list-icon green">📊</div><div class="list-content"><div class="list-title">Advanced Dashboard Deploy</div><div class="list-subtitle">12:17 UTC</div></div></div>
                         <div class="list-item"><div class="list-icon green">🌐</div><div class="list-content"><div class="list-title">GitHub Pages Setup</div><div class="list-subtitle">12:10 UTC</div></div></div>
                         <div class="list-item"><div class="list-icon green">📝</div><div class="list-content"><div class="list-title">Working Agreement Created</div><div class="list-subtitle">11:50 UTC</div></div></div>
                         <div class="list-item"><div class="list-icon green">👤</div><div class="list-content"><div class="list-title">User Profile Updated</div><div class="list-subtitle">11:48 UTC</div></div></div>
-                        <div class="list-item"><div class="list-icon green">☁️</div><div class="list-content"><div class="list-title">Bedrock Model Confirmed</div><div class="list-subtitle">11:05 UTC</div></div></div>
                     </div>
                 </div>
             </div>
@@ -223,14 +238,14 @@
         <div class="tab-bar">
             <div class="tab-item active" onclick="showPage('dashboard')"><div class="tab-icon">🏠</div><div class="tab-label">Home</div></div>
             <div class="tab-item" onclick="showPage('tasks')"><div class="tab-icon">✅</div><div class="tab-label">Tasks</div></div>
-            <div class="tab-item" onclick="showPage('ideas')"><div class="tab-icon">💡</div><div class="tab-label">Ideas</div></div>
+            <div class="tab-item" onclick="showPage('leads')"><div class="tab-icon">🎯</div><div class="tab-label">Leads</div></div>
             <div class="tab-item" onclick="showPage('activity')"><div class="tab-icon">📜</div><div class="tab-label">Activity</div></div>
             <div class="tab-item" onclick="showPage('settings')"><div class="tab-icon">⚙️</div><div class="tab-label">Settings</div></div>
         </div>
     </div>
 
     <script>
-        const titles = {dashboard:'Dashboard',tasks:'Tasks',ideas:'Ideas',activity:'Activity',settings:'Settings'};
+        const titles = {dashboard:'Dashboard',tasks:'Tasks',leads:'Leads',activity:'Activity',settings:'Settings'};
         function showPage(page){
             document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
             document.querySelectorAll('.tab-item').forEach(t=>t.classList.remove('active'));
