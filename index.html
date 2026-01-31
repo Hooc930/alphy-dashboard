@@ -9,7 +9,7 @@
     <title>Alphy Ops</title>
     <style>
         :root{--bg:#000;--bg-secondary:#1c1c1e;--bg-tertiary:#2c2c2e;--bg-elevated:#3a3a3c;--accent:#0a84ff;--accent-green:#30d158;--accent-orange:#ff9f0a;--accent-red:#ff453a;--accent-purple:#bf5af2;--text:#fff;--text-secondary:#8e8e93;--text-tertiary:#636366;--separator:#38383a;--card-radius:13px;--safe-top:env(safe-area-inset-top);--safe-bottom:env(safe-area-inset-bottom)}
-        *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+        *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
         body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;min-height:-webkit-fill-available;overflow-x:hidden}
         .app{display:flex;flex-direction:column;min-height:100vh;min-height:-webkit-fill-available;padding-top:var(--safe-top);padding-bottom:calc(80px + var(--safe-bottom))}
         .header{position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);padding:12px 20px 12px;border-bottom:0.5px solid var(--separator)}
@@ -73,6 +73,22 @@
         .lead-table th{text-align:left;padding:10px;background:var(--bg-tertiary);color:var(--text-secondary);font-weight:600}
         .lead-table td{padding:10px;border-bottom:1px solid var(--separator)}
         .lead-table tr:last-child td{border-bottom:none}
+        
+        /* Scripts page styles */
+        .script-card{background:var(--bg-secondary);border-radius:var(--card-radius);overflow:hidden;margin-bottom:16px}
+        .script-header{padding:16px;border-bottom:0.5px solid var(--separator);display:flex;justify-content:space-between;align-items:center}
+        .script-info h3{font-size:17px;font-weight:600;margin-bottom:4px}
+        .script-info p{font-size:13px;color:var(--text-secondary)}
+        .copy-btn{background:var(--accent);color:white;border:none;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:transform 0.1s}
+        .copy-btn:active{transform:scale(0.95)}
+        .copy-btn.copied{background:var(--accent-green)}
+        .script-code{max-height:60vh;overflow:auto;-webkit-overflow-scrolling:touch}
+        .script-code pre{margin:0;padding:16px;font-family:'SF Mono',Monaco,Consolas,monospace;font-size:11px;line-height:1.5;color:#e0e0e0;white-space:pre;overflow-x:auto;-webkit-user-select:text;user-select:text}
+        .script-stats{display:flex;gap:16px;padding:12px 16px;background:var(--bg-tertiary);font-size:12px;color:var(--text-secondary)}
+        .script-stats span{display:flex;align-items:center;gap:4px}
+        .script-tabs{display:flex;border-bottom:0.5px solid var(--separator);padding:0 16px}
+        .script-tab{padding:12px 16px;font-size:14px;color:var(--text-secondary);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-0.5px}
+        .script-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
     </style>
 </head>
 <body>
@@ -82,7 +98,7 @@
                 <div class="header-title" id="header-title">Dashboard</div>
                 <div class="header-icon">🤘</div>
             </div>
-            <div class="header-subtitle">Last updated: Jan 30, 2026 • 23:25 UTC</div>
+            <div class="header-subtitle">Last updated: Jan 31, 2026 • 14:55 UTC</div>
         </div>
 
         <!-- DASHBOARD PAGE -->
@@ -90,30 +106,28 @@
             <div class="live-card">
                 <div class="live-header">
                     <div class="live-dot"></div>
-                    <span class="live-label">Working Overnight</span>
+                    <span class="live-label">Just Completed</span>
                 </div>
-                <div class="live-title">🛁 RIGURGITO Towel Landing Page</div>
-                <div class="live-meta">Premium design • 34 product images • Hebrew copy • 2-step checkout</div>
+                <div class="live-title">🚀 HooxMega Speed Optimizer v3.0</div>
+                <div class="live-meta">7-layer optimization • Mobile-first • GDPR compliant • Learning engine</div>
             </div>
             
             <div class="stats-row">
-                <div class="stat-item"><div class="stat-value">34</div><div class="stat-label">Images</div></div>
-                <div class="stat-item"><div class="stat-value">₪379</div><div class="stat-label">Price</div></div>
-                <div class="stat-item"><div class="stat-value">2</div><div class="stat-label">Steps</div></div>
-                <div class="stat-item"><div class="stat-value">🌙</div><div class="stat-label">Overnight</div></div>
+                <div class="stat-item"><div class="stat-value">7</div><div class="stat-label">Layers</div></div>
+                <div class="stat-item"><div class="stat-value">17KB</div><div class="stat-label">Minified</div></div>
+                <div class="stat-item"><div class="stat-value">50%</div><div class="stat-label">LCP ↓</div></div>
+                <div class="stat-item"><div class="stat-value">✅</div><div class="stat-label">GDPR</div></div>
             </div>
             
             <div class="content">
                 <div class="section">
                     <div class="section-header">
                         <div class="section-title">Recent Activity</div>
-                        <div class="section-action">See All</div>
                     </div>
                     <div class="list-card">
-                        <div class="list-item"><div class="list-icon orange">🛁</div><div class="list-content"><div class="list-title">Towel Landing Page Build</div><div class="list-subtitle">Premium design, SilQ-style, overnight task</div></div><span class="list-badge badge-progress">Building</span></div>
+                        <div class="list-item"><div class="list-icon green">🚀</div><div class="list-content"><div class="list-title">HooxMega v3.0 Complete</div><div class="list-subtitle">7-layer speed optimizer with learning engine</div></div><span class="list-badge badge-done">Done</span></div>
+                        <div class="list-item"><div class="list-icon green">🛁</div><div class="list-content"><div class="list-title">Towel Landing Page</div><div class="list-subtitle">Premium design, SilQ-style</div></div><span class="list-badge badge-done">Done</span></div>
                         <div class="list-item"><div class="list-icon green">🔒</div><div class="list-content"><div class="list-title">VM Security Hardening</div><div class="list-subtitle">API keys secured, fail2ban, SSH locked</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">🖼️</div><div class="list-content"><div class="list-title">Image Generation Setup</div><div class="list-subtitle">Nova Canvas + Hebrew text overlay</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">🐾</div><div class="list-content"><div class="list-title">Pets Niche Lead Scraping</div><div class="list-subtitle">63 leads, 34 with WhatsApp numbers</div></div><span class="list-badge badge-done">Done</span></div>
                     </div>
                 </div>
                 
@@ -122,19 +136,92 @@
                         <div class="section-title">Businesses</div>
                     </div>
                     <div class="biz-card">
-                        <div class="biz-header"><div class="biz-name">🛁 PuraVida X RIGURGITO</div><span class="list-badge badge-progress">Building</span></div>
-                        <div class="biz-type">Antibacterial Towels Landing Page</div>
-                        <div class="biz-stats"><div class="biz-stat"><strong>Price:</strong> ₪379 main / ₪189 upsell</div></div>
+                        <div class="biz-header"><div class="biz-name">🔗 TryHoox.com</div><span class="list-badge badge-progress">Building</span></div>
+                        <div class="biz-type">Conversion SaaS • HooxMega Script Ready</div>
+                        <div class="biz-stats"><div class="biz-stat"><strong>Script:</strong> v3.0.0 (17KB)</div></div>
                     </div>
                     <div class="biz-card">
-                        <div class="biz-header"><div class="biz-name">🔗 TryHoox.com</div><span class="list-badge badge-progress">Validating</span></div>
-                        <div class="biz-type">Conversion SaaS • Israeli Market</div>
-                        <div class="biz-stats"><div class="biz-stat"><strong>Leads:</strong> 63 (34 with WhatsApp)</div></div>
+                        <div class="biz-header"><div class="biz-name">🛁 RIGURGITO Towels</div><span class="list-badge badge-done">Ready</span></div>
+                        <div class="biz-type">Antibacterial Towels Landing Page</div>
+                        <div class="biz-stats"><div class="biz-stat"><strong>Price:</strong> ₪379 main / ₪189 upsell</div></div>
                     </div>
                     <div class="biz-card">
                         <div class="biz-header"><div class="biz-name">💎 PuravidaTLV</div><span class="list-badge badge-pending">Needs Work</span></div>
                         <div class="biz-type">Women's Jewelry E-commerce</div>
                         <div class="biz-stats"><div class="biz-stat"><strong>Status:</strong> Underperforming</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCRIPTS PAGE -->
+        <div class="page" id="page-scripts">
+            <div class="content" style="padding-top:16px">
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-title">Speed Scripts</div>
+                    </div>
+                    
+                    <div class="script-card">
+                        <div class="script-header">
+                            <div class="script-info">
+                                <h3>🚀 HooxMega v3.0.0</h3>
+                                <p>Ultimate 7-Layer Speed Optimizer</p>
+                            </div>
+                            <button class="copy-btn" onclick="copyScript('full')">Copy Full</button>
+                        </div>
+                        <div class="script-stats">
+                            <span>📦 42KB full</span>
+                            <span>📦 17KB min</span>
+                            <span>📄 1,428 lines</span>
+                        </div>
+                        <div class="script-tabs">
+                            <div class="script-tab active" onclick="showScriptTab('full')">Full Source</div>
+                            <div class="script-tab" onclick="showScriptTab('min')">Minified</div>
+                            <div class="script-tab" onclick="showScriptTab('embed')">Embed Code</div>
+                        </div>
+                        <div class="script-code" id="script-full">
+                            <pre id="code-full">Loading...</pre>
+                        </div>
+                        <div class="script-code" id="script-min" style="display:none">
+                            <pre id="code-min">Loading...</pre>
+                        </div>
+                        <div class="script-code" id="script-embed" style="display:none">
+                            <pre id="code-embed">&lt;!-- HooxMega Speed Optimizer --&gt;
+&lt;script src="https://cdn.tryhoox.com/hoox-mega.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Or inline (recommended for maximum speed): --&gt;
+&lt;script&gt;
+// Paste minified code here
+&lt;/script&gt;
+
+&lt;!-- Debug API: --&gt;
+&lt;script&gt;
+// View stats
+console.log(HooxMega.getStats());
+
+// Reset learned data
+HooxMega.reset();
+
+// Manual trigger for SPA
+HooxMega.onNavigate();
+&lt;/script&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-title">What It Does</div>
+                    </div>
+                    <div class="list-card">
+                        <div class="list-item"><div class="list-icon blue">1️⃣</div><div class="list-content"><div class="list-title">Critical Path (0-50ms)</div><div class="list-subtitle">Preconnects, defer non-critical CSS</div></div></div>
+                        <div class="list-item"><div class="list-icon green">2️⃣</div><div class="list-content"><div class="list-title">LCP Assassination (50-200ms)</div><div class="list-subtitle">Find & boost LCP before browser</div></div></div>
+                        <div class="list-item"><div class="list-icon orange">3️⃣</div><div class="list-content"><div class="list-title">Image Intelligence (200-500ms)</div><div class="list-subtitle">Smart lazy loading & priorities</div></div></div>
+                        <div class="list-item"><div class="list-icon purple">4️⃣</div><div class="list-content"><div class="list-title">JS Execution Control</div><div class="list-subtitle">Defer third-party scripts</div></div></div>
+                        <div class="list-item"><div class="list-icon blue">5️⃣</div><div class="list-content"><div class="list-title">Network Waterfall</div><div class="list-subtitle">DNS-prefetch discovered origins</div></div></div>
+                        <div class="list-item"><div class="list-icon green">6️⃣</div><div class="list-content"><div class="list-title">CLS Elimination</div><div class="list-subtitle">Image dimensions, font-display</div></div></div>
+                        <div class="list-item"><div class="list-icon orange">7️⃣</div><div class="list-content"><div class="list-title">Adaptive Navigation</div><div class="list-subtitle">Learning engine + predictions</div></div></div>
                     </div>
                 </div>
             </div>
@@ -147,17 +234,13 @@
                     <div class="section-header"><div class="section-title">In Progress</div></div>
                     <div class="list-card">
                         <div class="list-item"><div class="list-icon orange">📞</div><div class="list-content"><div class="list-title">TryHoox Outreach Campaign</div><div class="list-subtitle">27 leads ready to contact</div></div><div class="progress-mini" style="--p:0"></div></div>
-                        <div class="list-item"><div class="list-icon purple">💎</div><div class="list-content"><div class="list-title">PuravidaTLV Diagnosis</div><div class="list-subtitle">Medium Priority • This Week</div></div><div class="progress-mini" style="--p:0"></div></div>
                     </div>
                 </div>
                 <div class="section">
                     <div class="section-header"><div class="section-title">Completed Today</div></div>
                     <div class="list-card">
-                        <div class="list-item"><div class="list-icon green">🎯</div><div class="list-content"><div class="list-title">Lead Generation (FB Ads Library)</div><div class="list-subtitle">15:20 UTC • 27 leads found</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">🎙️</div><div class="list-content"><div class="list-title">Whisper Transcription Setup</div><div class="list-subtitle">13:13 UTC</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">📱</div><div class="list-content"><div class="list-title">iOS Dashboard Design</div><div class="list-subtitle">12:55 UTC</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">📊</div><div class="list-content"><div class="list-title">Advanced Dashboard</div><div class="list-subtitle">12:17 UTC</div></div><span class="list-badge badge-done">Done</span></div>
-                        <div class="list-item"><div class="list-icon green">🌐</div><div class="list-content"><div class="list-title">GitHub Pages Deploy</div><div class="list-subtitle">12:10 UTC</div></div><span class="list-badge badge-done">Done</span></div>
+                        <div class="list-item"><div class="list-icon green">🚀</div><div class="list-content"><div class="list-title">HooxMega v3.0 Script</div><div class="list-subtitle">14:55 UTC • 7-layer optimizer</div></div><span class="list-badge badge-done">Done</span></div>
+                        <div class="list-item"><div class="list-icon green">🛁</div><div class="list-content"><div class="list-title">Towel Landing Page</div><div class="list-subtitle">Overnight build complete</div></div><span class="list-badge badge-done">Done</span></div>
                     </div>
                 </div>
             </div>
@@ -178,60 +261,12 @@
                                 <tr><td>my-dog.co.il</td><td>+972502227202</td></tr>
                                 <tr><td>tobeey.com</td><td>+972574539661</td></tr>
                                 <tr><td>mor-ven.com</td><td>+9720503919117</td></tr>
-                                <tr><td>travelhotels.co.il</td><td>+972507827166</td></tr>
                                 <tr><td>catkit.shop</td><td>+972503556366</td></tr>
                                 <tr><td>anipet.co.il</td><td>+972523643666</td></tr>
                                 <tr><td>petbest.co.il</td><td>+972509589019</td></tr>
-                                <tr><td>kartzia.com</td><td>+9720523319974</td></tr>
-                                <tr><td>hishhay.co.il</td><td>+972529425159</td></tr>
                                 <tr><td>megapet.co.il</td><td>+972543441280</td></tr>
-                                <tr><td>kelev-teva.co.il</td><td>+972528297456</td></tr>
-                                <tr><td>henrys.co.il</td><td>+972723929672</td></tr>
-                                <tr><td>joybox.co.il</td><td>+972548822439</td></tr>
-                                <tr><td>drfood.co.il</td><td>+972584544284</td></tr>
-                                <tr><td>keflahayot.co.il</td><td>+972533524755</td></tr>
-                                <tr><td>jaango.co.il</td><td>+972502194922</td></tr>
-                                <tr><td>kipodan18.co.il</td><td>+972553053989</td></tr>
-                                <tr><td>decogarden.co.il</td><td>+972505298983</td></tr>
-                                <tr><td>hydroshop.co.il</td><td>+972526626373</td></tr>
-                                <tr><td>havathaplumeria</td><td>+972545898993</td></tr>
-                                <tr><td>gardencenter.co.il</td><td>+972515588451</td></tr>
-                                <tr><td>bustanika.co.il</td><td>+972523588350</td></tr>
-                                <tr><td>guyvanof.co.il</td><td>+9720549887004</td></tr>
-                                <tr><td>purina.co.il</td><td>+972550340051</td></tr>
-                                <tr><td>lulim.co.il</td><td>+972505391670</td></tr>
-                                <tr><td>hayot-online.co.il</td><td>+972555028290</td></tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-                <div class="section">
-                    <div class="section-header"><div class="section-title">Search Terms Used</div></div>
-                    <div class="list-card">
-                        <div class="list-item"><div class="list-icon purple">🐕</div><div class="list-content"><div class="list-title">כלבים, חתולים, חיות מחמד</div><div class="list-subtitle">Dogs, Cats, Pets</div></div></div>
-                        <div class="list-item"><div class="list-icon orange">🍖</div><div class="list-content"><div class="list-title">מזון לכלבים, מזון לחתולים</div><div class="list-subtitle">Dog food, Cat food</div></div></div>
-                        <div class="list-item"><div class="list-icon green">🏪</div><div class="list-content"><div class="list-title">חנות חיות, וטרינר</div><div class="list-subtitle">Pet store, Veterinarian</div></div></div>
-                        <div class="list-item"><div class="list-icon blue">✂️</div><div class="list-content"><div class="list-title">מספרה לכלבים, פנסיון</div><div class="list-subtitle">Dog grooming, Boarding</div></div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ACTIVITY PAGE -->
-        <div class="page" id="page-activity">
-            <div class="content" style="padding-top:16px">
-                <div class="section">
-                    <div class="section-header"><div class="section-title">All Activity</div></div>
-                    <div class="list-card">
-                        <div class="list-item"><div class="list-icon green">🎯</div><div class="list-content"><div class="list-title">Lead Scraping Complete</div><div class="list-subtitle">15:20 UTC • 27 leads, 10 with WhatsApp</div></div></div>
-                        <div class="list-item"><div class="list-icon blue">🔍</div><div class="list-content"><div class="list-title">FB Ads Library Scraping Started</div><div class="list-subtitle">15:09 UTC • Sub-agent spawned</div></div></div>
-                        <div class="list-item"><div class="list-icon green">🎙️</div><div class="list-content"><div class="list-title">Whisper Transcription Working</div><div class="list-subtitle">13:20 UTC • Fixed audio format issue</div></div></div>
-                        <div class="list-item"><div class="list-icon green">🎙️</div><div class="list-content"><div class="list-title">Whisper Installed & Configured</div><div class="list-subtitle">13:13 UTC</div></div></div>
-                        <div class="list-item"><div class="list-icon green">📱</div><div class="list-content"><div class="list-title">iOS Dashboard Deployed</div><div class="list-subtitle">12:55 UTC</div></div></div>
-                        <div class="list-item"><div class="list-icon green">📊</div><div class="list-content"><div class="list-title">Advanced Dashboard Deploy</div><div class="list-subtitle">12:17 UTC</div></div></div>
-                        <div class="list-item"><div class="list-icon green">🌐</div><div class="list-content"><div class="list-title">GitHub Pages Setup</div><div class="list-subtitle">12:10 UTC</div></div></div>
-                        <div class="list-item"><div class="list-icon green">📝</div><div class="list-content"><div class="list-title">Working Agreement Created</div><div class="list-subtitle">11:50 UTC</div></div></div>
-                        <div class="list-item"><div class="list-icon green">👤</div><div class="list-content"><div class="list-title">User Profile Updated</div><div class="list-subtitle">11:48 UTC</div></div></div>
                     </div>
                 </div>
             </div>
@@ -245,8 +280,6 @@
                     <div class="list-card">
                         <div class="list-item"><div class="list-icon blue">🤖</div><div class="list-content"><div class="list-title">Model</div><div class="list-subtitle">Claude Opus 4.5 via Bedrock</div></div></div>
                         <div class="list-item"><div class="list-icon green">💬</div><div class="list-content"><div class="list-title">Channel</div><div class="list-subtitle">Telegram</div></div></div>
-                        <div class="list-item"><div class="list-icon orange">🔍</div><div class="list-content"><div class="list-title">Search</div><div class="list-subtitle">Brave API Active</div></div></div>
-                        <div class="list-item"><div class="list-icon purple">🎙️</div><div class="list-content"><div class="list-title">Audio</div><div class="list-subtitle">Whisper.cpp (base model)</div></div></div>
                     </div>
                 </div>
                 <div class="section">
@@ -260,15 +293,16 @@
 
         <div class="tab-bar">
             <div class="tab-item active" onclick="showPage('dashboard')"><div class="tab-icon">🏠</div><div class="tab-label">Home</div></div>
+            <div class="tab-item" onclick="showPage('scripts')"><div class="tab-icon">📜</div><div class="tab-label">Scripts</div></div>
             <div class="tab-item" onclick="showPage('tasks')"><div class="tab-icon">✅</div><div class="tab-label">Tasks</div></div>
             <div class="tab-item" onclick="showPage('leads')"><div class="tab-icon">🎯</div><div class="tab-label">Leads</div></div>
-            <div class="tab-item" onclick="showPage('activity')"><div class="tab-icon">📜</div><div class="tab-label">Activity</div></div>
             <div class="tab-item" onclick="showPage('settings')"><div class="tab-icon">⚙️</div><div class="tab-label">Settings</div></div>
         </div>
     </div>
 
     <script>
-        const titles = {dashboard:'Dashboard',tasks:'Tasks',leads:'Leads',activity:'Activity',settings:'Settings'};
+        const titles = {dashboard:'Dashboard',scripts:'Scripts',tasks:'Tasks',leads:'Leads',settings:'Settings'};
+        
         function showPage(page){
             document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
             document.querySelectorAll('.tab-item').forEach(t=>t.classList.remove('active'));
@@ -276,6 +310,1466 @@
             event.currentTarget.classList.add('active');
             document.getElementById('header-title').textContent=titles[page];
         }
+        
+        function showScriptTab(tab) {
+            document.querySelectorAll('.script-tab').forEach(t=>t.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            document.querySelectorAll('.script-code').forEach(c=>c.style.display='none');
+            document.getElementById('script-'+tab).style.display='block';
+        }
+        
+        function copyScript(type) {
+            let code;
+            if (type === 'full') {
+                code = document.getElementById('code-full').textContent;
+            } else if (type === 'min') {
+                code = document.getElementById('code-min').textContent;
+            }
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = event.currentTarget;
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy Full';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+        
+        // Load script content
+        const FULL_SCRIPT = `/**
+ * HOOX HYPERCACHE MEGA v3.0.0
+ * The Ultimate Speed Optimizer - 7 Layers of Optimization
+ * 
+ * MOBILE-FIRST | GDPR-COMPLIANT | LEARNS & ADAPTS
+ * 
+ * Layers:
+ * 1. CRITICAL PATH - Immediate render-blocking fixes
+ * 2. LCP ASSASSINATION - Find and prioritize LCP
+ * 3. IMAGE INTELLIGENCE - Smart image optimization
+ * 4. JS EXECUTION CONTROL - Main thread protection
+ * 5. NETWORK WATERFALL - Resource hint orchestration
+ * 6. CLS ELIMINATION - Layout shift prevention
+ * 7. ADAPTIVE EXECUTION - Per-user optimization
+ * 
+ * Plus: Learning engine for return visitors
+ */
+
+(function() {
+  'use strict';
+
+  // ============================================================================
+  // CONFIGURATION & CONSTANTS
+  // ============================================================================
+  
+  const VERSION = '3.0.0';
+  const STORAGE_KEY = 'hoox_mega_v3';
+  const DEBUG = false;
+  
+  // Timing budgets (ms)
+  const PHASE_BUDGETS = {
+    emergency: 50,
+    critical: 200,
+    optimization: 500,
+    learning: Infinity
+  };
+
+  // ============================================================================
+  // UTILITIES
+  // ============================================================================
+  
+  const log = (...args) => DEBUG && console.log('[HooxMega]', ...args);
+  const now = () => performance.now();
+  const raf = (fn) => requestAnimationFrame(fn);
+  const idle = (fn, timeout = 2000) => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(fn, { timeout });
+    } else {
+      setTimeout(fn, 100);
+    }
+  };
+
+  const isAboveFold = (el) => {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+  };
+
+  const getOrigin = (url) => {
+    try {
+      return new URL(url, location.origin).origin;
+    } catch {
+      return null;
+    }
+  };
+
+  const isExternal = (url) => {
+    const origin = getOrigin(url);
+    return origin && origin !== location.origin;
+  };
+
+  const isExcludedPath = (path) => {
+    const excluded = [/logout/i, /signout/i, /cart/i, /checkout/i, /account/i];
+    return excluded.some(r => r.test(path));
+  };
+
+  // ============================================================================
+  // DEVICE PROFILER - Determines optimization intensity
+  // ============================================================================
+  
+  const DeviceProfiler = {
+    profile: null,
+
+    analyze() {
+      const profile = {
+        // Device capabilities
+        isMobile: /Mobile|Android|iPhone|iPad/i.test(navigator.userAgent),
+        isTouch: 'ontouchstart' in window || navigator.maxTouchPoints > 0,
+        screenWidth: window.screen.width,
+        screenHeight: window.screen.height,
+        viewportWidth: window.innerWidth,
+        viewportHeight: window.innerHeight,
+        pixelRatio: window.devicePixelRatio || 1,
+        
+        // Hardware (when available)
+        memory: navigator.deviceMemory || null, // null on iOS
+        cores: navigator.hardwareConcurrency || null,
+        
+        // Network (when available)
+        connection: this.getConnectionInfo(),
+        
+        // Calculated scores
+        deviceScore: 0,
+        networkScore: 0,
+        totalScore: 0,
+        strategy: 'moderate'
+      };
+
+      // Calculate device score (0-10)
+      profile.deviceScore = this.calculateDeviceScore(profile);
+      
+      // Calculate network score (0-10)
+      profile.networkScore = this.calculateNetworkScore(profile);
+      
+      // Total score determines strategy
+      profile.totalScore = profile.deviceScore + profile.networkScore;
+      profile.strategy = this.determineStrategy(profile.totalScore, profile);
+
+      this.profile = profile;
+      log('Device profile:', profile);
+      return profile;
+    },
+
+    getConnectionInfo() {
+      const conn = navigator.connection;
+      if (!conn) return { type: 'unknown', saveData: false };
+      
+      return {
+        type: conn.effectiveType || 'unknown',
+        downlink: conn.downlink || null,
+        rtt: conn.rtt || null,
+        saveData: conn.saveData || false
+      };
+    },
+
+    calculateDeviceScore(p) {
+      let score = 5; // Base score
+      
+      // Memory bonus/penalty
+      if (p.memory) {
+        if (p.memory >= 8) score += 2;
+        else if (p.memory >= 4) score += 1;
+        else if (p.memory <= 2) score -= 2;
+      }
+      
+      // CPU cores bonus
+      if (p.cores) {
+        if (p.cores >= 8) score += 2;
+        else if (p.cores >= 4) score += 1;
+        else if (p.cores <= 2) score -= 1;
+      }
+      
+      // Mobile typically has less resources
+      if (p.isMobile) score -= 1;
+      
+      return Math.max(0, Math.min(10, score));
+    },
+
+    calculateNetworkScore(p) {
+      let score = 5; // Base score
+      
+      const conn = p.connection;
+      
+      // Save data mode = user wants minimal
+      if (conn.saveData) return 0;
+      
+      // Connection type
+      switch (conn.type) {
+        case '4g': score += 3; break;
+        case '3g': score += 0; break;
+        case '2g': score -= 3; break;
+        case 'slow-2g': score -= 5; break;
+      }
+      
+      // RTT penalty
+      if (conn.rtt) {
+        if (conn.rtt > 500) score -= 2;
+        else if (conn.rtt > 200) score -= 1;
+        else if (conn.rtt < 50) score += 1;
+      }
+      
+      return Math.max(0, Math.min(10, score));
+    },
+
+    determineStrategy(totalScore, profile) {
+      // Save data always = minimal
+      if (profile.connection.saveData) return 'minimal';
+      
+      // Score-based strategy
+      if (totalScore >= 14) return 'aggressive';
+      if (totalScore >= 10) return 'moderate';
+      if (totalScore >= 6) return 'conservative';
+      return 'minimal';
+    },
+
+    getStrategy() {
+      return this.profile?.strategy || 'moderate';
+    }
+  };
+
+  // ============================================================================
+  // STORAGE - GDPR-Compliant persistence
+  // ============================================================================
+  
+  const Storage = {
+    data: null,
+
+    load() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        this.data = raw ? JSON.parse(raw) : this.getDefault();
+        if (this.data.version !== 3) this.data = this.getDefault();
+      } catch {
+        this.data = this.getDefault();
+      }
+      return this.data;
+    },
+
+    save() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(this.data));
+      } catch {}
+    },
+
+    getDefault() {
+      return {
+        version: 3,
+        visitCount: 0,
+        // Learned optimizations (technical only, no PII)
+        lcpSelector: null,
+        criticalOrigins: [],
+        navigationModel: {},
+        // Performance tracking
+        prefetchHits: 0,
+        prefetchMisses: 0,
+        avgLCP: null
+      };
+    }
+  };
+
+  // ============================================================================
+  // LAYER 1: CRITICAL PATH OPTIMIZATION (Emergency - 0-50ms)
+  // ============================================================================
+  
+  const CriticalPath = {
+    init() {
+      const start = now();
+      
+      // These run synchronously for maximum impact
+      this.injectPreconnects();
+      this.deferNonCriticalCSS();
+      this.boostCriticalResources();
+      
+      log(\`CriticalPath completed in \${(now() - start).toFixed(1)}ms\`);
+    },
+
+    injectPreconnects() {
+      // Priority origins for e-commerce
+      const priorityOrigins = [
+        'https://fonts.googleapis.com',
+        'https://fonts.gstatic.com',
+        'https://cdn.shopify.com',
+        'https://www.googletagmanager.com'
+      ];
+      
+      // Add stored critical origins from previous visits
+      const storedOrigins = Storage.data.criticalOrigins || [];
+      
+      // Combine and dedupe
+      const origins = [...new Set([...priorityOrigins, ...storedOrigins])];
+      
+      // Check what's already preconnected
+      const existing = new Set(
+        Array.from(document.querySelectorAll('link[rel="preconnect"]'))
+          .map(l => l.href.replace(/\\/\$/, ''))
+      );
+      
+      // Inject preconnects (max 6 to avoid overhead)
+      let added = 0;
+      origins.forEach(origin => {
+        if (added >= 6) return;
+        if (existing.has(origin)) return;
+        
+        const link = document.createElement('link');
+        link.rel = 'preconnect';
+        link.href = origin;
+        link.crossOrigin = 'anonymous';
+        document.head.appendChild(link);
+        added++;
+      });
+      
+      log(\`Injected \${added} preconnects\`);
+    },
+
+    deferNonCriticalCSS() {
+      // Find all stylesheets
+      const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+      
+      stylesheets.forEach(link => {
+        const href = link.href;
+        
+        // Skip if already has media query that makes it non-blocking
+        if (link.media && link.media !== 'all' && link.media !== 'screen') return;
+        
+        // Heuristics for non-critical CSS
+        const isNonCritical = 
+          /font/i.test(href) ||
+          /icon/i.test(href) ||
+          /print/i.test(href) ||
+          /animation/i.test(href);
+        
+        if (isNonCritical) {
+          // Convert to non-blocking
+          link.media = 'print';
+          link.onload = function() { this.media = 'all'; };
+          log('Deferred CSS:', href);
+        }
+      });
+    },
+
+    boostCriticalResources() {
+      // If we have a stored LCP selector, preload it immediately
+      const lcpSelector = Storage.data.lcpSelector;
+      if (lcpSelector) {
+        const lcpEl = document.querySelector(lcpSelector);
+        if (lcpEl) {
+          const src = lcpEl.src || lcpEl.currentSrc;
+          if (src && !document.querySelector(\`link[rel="preload"][href="\${src}"]\`)) {
+            const preload = document.createElement('link');
+            preload.rel = 'preload';
+            preload.as = 'image';
+            preload.href = src;
+            preload.fetchPriority = 'high';
+            document.head.insertBefore(preload, document.head.firstChild);
+            log('Preloaded stored LCP:', src);
+          }
+        }
+      }
+    }
+  };
+
+  // ============================================================================
+  // LAYER 2: LCP ASSASSINATION (Critical - 50-200ms)
+  // ============================================================================
+  
+  const LCPAssassin = {
+    lcpCandidate: null,
+
+    init() {
+      const start = now();
+      
+      // Find LCP candidate immediately (don't wait for PerformanceObserver)
+      this.findLCPCandidate();
+      
+      // Boost it
+      if (this.lcpCandidate) {
+        this.boostLCP(this.lcpCandidate);
+      }
+      
+      // Also set up observer for learning
+      this.setupObserver();
+      
+      log(\`LCPAssassin completed in \${(now() - start).toFixed(1)}ms\`);
+    },
+
+    findLCPCandidate() {
+      const viewportHeight = window.innerHeight;
+      
+      // Strategy 1: Look for hero images
+      const heroSelectors = [
+        '.hero img', '.hero-image', '.banner img', '.slider img',
+        '[class*="hero"] img', '[class*="banner"] img',
+        'main > section:first-child img',
+        'header img[src]'
+      ];
+      
+      for (const selector of heroSelectors) {
+        const el = document.querySelector(selector);
+        if (el && isAboveFold(el)) {
+          this.lcpCandidate = el;
+          log('LCP candidate (hero):', selector);
+          return;
+        }
+      }
+      
+      // Strategy 2: Largest above-fold image
+      const images = Array.from(document.querySelectorAll('img[src]'))
+        .filter(img => isAboveFold(img))
+        .map(img => ({
+          el: img,
+          size: img.offsetWidth * img.offsetHeight
+        }))
+        .sort((a, b) => b.size - a.size);
+      
+      if (images.length > 0 && images[0].size > 10000) {
+        this.lcpCandidate = images[0].el;
+        log('LCP candidate (largest):', this.lcpCandidate.src);
+        return;
+      }
+      
+      // Strategy 3: Background images on large elements
+      const largeElements = Array.from(document.querySelectorAll('div, section, header'))
+        .filter(el => {
+          if (!isAboveFold(el)) return false;
+          const style = getComputedStyle(el);
+          return style.backgroundImage && style.backgroundImage !== 'none';
+        })
+        .sort((a, b) => (b.offsetWidth * b.offsetHeight) - (a.offsetWidth * a.offsetHeight));
+      
+      if (largeElements.length > 0) {
+        // Extract background image URL and preload
+        const style = getComputedStyle(largeElements[0]);
+        const match = style.backgroundImage.match(/url\\(["']?(.+?)["']?\\)/);
+        if (match) {
+          this.preloadBackgroundImage(match[1]);
+        }
+      }
+    },
+
+    boostLCP(el) {
+      // Fetchpriority
+      if ('fetchPriority' in el) {
+        el.fetchPriority = 'high';
+      }
+      
+      // Remove lazy loading
+      if (el.loading === 'lazy') {
+        el.loading = 'eager';
+      }
+      
+      // Ensure decoding is sync for LCP
+      el.decoding = 'sync';
+      
+      // Preload the image
+      const src = el.src || el.currentSrc;
+      if (src && !document.querySelector(\`link[rel="preload"][href="\${src}"]\`)) {
+        const preload = document.createElement('link');
+        preload.rel = 'preload';
+        preload.as = 'image';
+        preload.href = src;
+        preload.fetchPriority = 'high';
+        document.head.appendChild(preload);
+      }
+      
+      log('LCP boosted:', src);
+    },
+
+    preloadBackgroundImage(url) {
+      const preload = document.createElement('link');
+      preload.rel = 'preload';
+      preload.as = 'image';
+      preload.href = url;
+      preload.fetchPriority = 'high';
+      document.head.appendChild(preload);
+      log('Preloaded background LCP:', url);
+    },
+
+    setupObserver() {
+      if (!('PerformanceObserver' in window)) return;
+      
+      try {
+        const observer = new PerformanceObserver((list) => {
+          const entries = list.getEntries();
+          const lastEntry = entries[entries.length - 1];
+          
+          if (lastEntry?.element) {
+            // Store for future visits
+            const selector = this.createSelector(lastEntry.element);
+            if (selector && selector !== Storage.data.lcpSelector) {
+              Storage.data.lcpSelector = selector;
+              Storage.save();
+              log('Learned LCP selector:', selector);
+            }
+          }
+        });
+        
+        observer.observe({ type: 'largest-contentful-paint', buffered: true });
+      } catch {}
+    },
+
+    createSelector(el) {
+      if (el.id) return \`#\${el.id}\`;
+      if (el.className && typeof el.className === 'string') {
+        const classes = el.className.trim().split(/\\s+/)
+          .filter(c => c && !c.includes(':') && c.length < 30)
+          .slice(0, 2);
+        if (classes.length) {
+          return el.tagName.toLowerCase() + '.' + classes.join('.');
+        }
+      }
+      return null;
+    }
+  };
+
+  // ============================================================================
+  // LAYER 3: IMAGE INTELLIGENCE (Optimization - 200-500ms)
+  // ============================================================================
+  
+  const ImageIntelligence = {
+    processed: new WeakSet(),
+
+    init() {
+      const start = now();
+      
+      // Process all images
+      this.processImages();
+      
+      // Set up mutation observer for dynamic images
+      this.observeNewImages();
+      
+      log(\`ImageIntelligence completed in \${(now() - start).toFixed(1)}ms\`);
+    },
+
+    processImages() {
+      const images = document.querySelectorAll('img');
+      const viewportHeight = window.innerHeight;
+      
+      images.forEach(img => {
+        if (this.processed.has(img)) return;
+        this.processed.add(img);
+        
+        const rect = img.getBoundingClientRect();
+        const isAbove = rect.top < viewportHeight;
+        const isVisible = rect.top < viewportHeight * 2; // Within 2 viewports
+        
+        if (isAbove) {
+          // ABOVE FOLD - prioritize
+          this.optimizeAboveFold(img);
+        } else if (isVisible) {
+          // NEAR VIEWPORT - prepare
+          this.optimizeNearViewport(img);
+        } else {
+          // FAR BELOW - lazy
+          this.optimizeBelowFold(img);
+        }
+        
+        // CLS prevention - ensure dimensions
+        this.ensureDimensions(img);
+      });
+    },
+
+    optimizeAboveFold(img) {
+      // Skip if this is the LCP (already handled)
+      if (img === LCPAssassin.lcpCandidate) return;
+      
+      // High priority
+      if ('fetchPriority' in img) {
+        img.fetchPriority = 'high';
+      }
+      
+      // Remove lazy loading
+      if (img.loading === 'lazy') {
+        img.loading = 'eager';
+      }
+      
+      // Async decoding (except LCP)
+      img.decoding = 'async';
+    },
+
+    optimizeNearViewport(img) {
+      // Medium priority
+      if ('fetchPriority' in img) {
+        img.fetchPriority = 'auto';
+      }
+      
+      // Still load but not urgently
+      img.loading = 'eager';
+      img.decoding = 'async';
+    },
+
+    optimizeBelowFold(img) {
+      // Low priority
+      if ('fetchPriority' in img) {
+        img.fetchPriority = 'low';
+      }
+      
+      // Lazy load
+      if (!img.loading) {
+        img.loading = 'lazy';
+      }
+      
+      img.decoding = 'async';
+    },
+
+    ensureDimensions(img) {
+      // Skip if already has dimensions
+      if (img.width && img.height) return;
+      if (img.style.width && img.style.height) return;
+      if (img.style.aspectRatio) return;
+      
+      // Try to get natural dimensions
+      if (img.naturalWidth && img.naturalHeight) {
+        img.width = img.naturalWidth;
+        img.height = img.naturalHeight;
+        return;
+      }
+      
+      // Set aspect ratio from attributes if available
+      const width = img.getAttribute('width');
+      const height = img.getAttribute('height');
+      if (width && height) {
+        img.style.aspectRatio = \`\${width} / \${height}\`;
+      }
+    },
+
+    observeNewImages() {
+      if (!('MutationObserver' in window)) return;
+      
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach(mutation => {
+          mutation.addedNodes.forEach(node => {
+            if (node.nodeName === 'IMG') {
+              this.processImage(node);
+            }
+            if (node.querySelectorAll) {
+              node.querySelectorAll('img').forEach(img => this.processImage(img));
+            }
+          });
+        });
+      });
+      
+      observer.observe(document.body, { childList: true, subtree: true });
+    },
+
+    processImage(img) {
+      if (this.processed.has(img)) return;
+      this.processed.add(img);
+      
+      // Default to lazy for dynamically added images
+      this.optimizeBelowFold(img);
+      this.ensureDimensions(img);
+    }
+  };
+
+
+  // ============================================================================
+  // LAYER 4: JS EXECUTION CONTROL (Optimization - ongoing)
+  // ============================================================================
+  
+  const JSExecutionControl = {
+    deferredScripts: [],
+
+    init() {
+      const start = now();
+      
+      // Identify and defer non-critical third-party scripts
+      this.deferThirdParty();
+      
+      // Set up yield mechanism for long tasks
+      this.setupYielding();
+      
+      log(\`JSExecutionControl completed in \${(now() - start).toFixed(1)}ms\`);
+    },
+
+    deferThirdParty() {
+      // Known non-critical third-party patterns
+      const deferPatterns = [
+        /google-analytics/i,
+        /googletagmanager/i,
+        /facebook.*pixel/i,
+        /fbevents/i,
+        /hotjar/i,
+        /clarity/i,
+        /intercom/i,
+        /drift/i,
+        /crisp/i,
+        /tawk/i,
+        /livechat/i,
+        /zendesk/i
+      ];
+      
+      // Process existing scripts
+      const scripts = document.querySelectorAll('script[src]');
+      scripts.forEach(script => {
+        const src = script.src;
+        const shouldDefer = deferPatterns.some(p => p.test(src));
+        
+        if (shouldDefer && !script.defer && !script.async) {
+          // Can't modify existing scripts, but track for future
+          log('Found non-deferred third-party:', src);
+        }
+      });
+      
+      // Intercept future script additions
+      this.interceptScriptAddition();
+    },
+
+    interceptScriptAddition() {
+      // Store original appendChild
+      const originalAppendChild = Element.prototype.appendChild;
+      
+      Element.prototype.appendChild = function(child) {
+        if (child.nodeName === 'SCRIPT' && child.src) {
+          const src = child.src;
+          
+          // Check if it's analytics/tracking that can be deferred
+          const isTracking = /analytics|pixel|tracking|gtag|fbq/i.test(src);
+          
+          if (isTracking && !child.defer && !child.async) {
+            child.defer = true;
+            log('Auto-deferred script:', src);
+          }
+        }
+        
+        return originalAppendChild.call(this, child);
+      };
+    },
+
+    setupYielding() {
+      // Provide a yield function for long tasks
+      window.hooxYield = async function() {
+        if ('scheduler' in window && 'yield' in scheduler) {
+          await scheduler.yield();
+        } else {
+          await new Promise(resolve => setTimeout(resolve, 0));
+        }
+      };
+    }
+  };
+
+  // ============================================================================
+  // LAYER 5: NETWORK WATERFALL OPTIMIZATION
+  // ============================================================================
+  
+  const NetworkWaterfall = {
+    discoveredOrigins: new Set(),
+
+    init() {
+      const start = now();
+      
+      // Discover all external origins
+      this.discoverOrigins();
+      
+      // Inject DNS prefetch for non-critical origins
+      this.injectDNSPrefetch();
+      
+      // Store critical origins for future visits
+      this.storeCriticalOrigins();
+      
+      log(\`NetworkWaterfall completed in \${(now() - start).toFixed(1)}ms\`);
+    },
+
+    discoverOrigins() {
+      // Scan all resources
+      const selectors = [
+        'script[src]',
+        'link[href]',
+        'img[src]',
+        'iframe[src]',
+        'video[src]',
+        'source[src]'
+      ];
+      
+      selectors.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => {
+          const url = el.src || el.href;
+          if (url && isExternal(url)) {
+            this.discoveredOrigins.add(getOrigin(url));
+          }
+        });
+      });
+      
+      log('Discovered origins:', Array.from(this.discoveredOrigins));
+    },
+
+    injectDNSPrefetch() {
+      // Get already-handled origins
+      const handled = new Set();
+      document.querySelectorAll('link[rel="preconnect"], link[rel="dns-prefetch"]')
+        .forEach(l => handled.add(l.href.replace(/\\/\$/, '')));
+      
+      // DNS prefetch the rest
+      let added = 0;
+      this.discoveredOrigins.forEach(origin => {
+        if (added >= 8) return;
+        if (handled.has(origin)) return;
+        
+        const link = document.createElement('link');
+        link.rel = 'dns-prefetch';
+        link.href = origin;
+        document.head.appendChild(link);
+        added++;
+      });
+      
+      log(\`Added \${added} dns-prefetch hints\`);
+    },
+
+    storeCriticalOrigins() {
+      // Store origins that loaded quickly (critical)
+      const criticalOrigins = Array.from(this.discoveredOrigins)
+        .filter(origin => {
+          // Heuristic: known critical services
+          const critical = [
+            'cdn.shopify.com', 'fonts.googleapis.com', 'fonts.gstatic.com',
+            'images.unsplash.com', 'cloudflare.com'
+          ];
+          return critical.some(c => origin.includes(c));
+        })
+        .slice(0, 6);
+      
+      if (criticalOrigins.length > 0) {
+        Storage.data.criticalOrigins = criticalOrigins;
+        Storage.save();
+      }
+    }
+  };
+
+  // ============================================================================
+  // LAYER 6: CLS ELIMINATION
+  // ============================================================================
+  
+  const CLSEliminator = {
+    init() {
+      const start = now();
+      
+      // Fix images without dimensions
+      this.fixImageDimensions();
+      
+      // Fix iframes and embeds
+      this.fixEmbedDimensions();
+      
+      // Add font-display to font faces
+      this.fixFontDisplay();
+      
+      // Monitor for CLS and log
+      this.monitorCLS();
+      
+      log(\`CLSEliminator completed in \${(now() - start).toFixed(1)}ms\`);
+    },
+
+    fixImageDimensions() {
+      const images = document.querySelectorAll('img:not([width]):not([height])');
+      
+      images.forEach(img => {
+        // If image is loaded, use natural dimensions
+        if (img.complete && img.naturalWidth) {
+          img.setAttribute('width', img.naturalWidth);
+          img.setAttribute('height', img.naturalHeight);
+          return;
+        }
+        
+        // Otherwise, set aspect-ratio when loaded
+        img.addEventListener('load', function() {
+          if (!this.width && !this.height) {
+            this.style.aspectRatio = \`\${this.naturalWidth} / \${this.naturalHeight}\`;
+          }
+        }, { once: true });
+      });
+    },
+
+    fixEmbedDimensions() {
+      // Common embed selectors
+      const embeds = document.querySelectorAll('iframe, video, embed, object');
+      
+      embeds.forEach(el => {
+        if (!el.width && !el.height && !el.style.aspectRatio) {
+          // Default to 16:9 for video content
+          if (el.src && /youtube|vimeo|video/i.test(el.src)) {
+            el.style.aspectRatio = '16 / 9';
+          }
+        }
+      });
+    },
+
+    fixFontDisplay() {
+      // Inject font-display: swap for any @font-face without it
+      // This is tricky - we can add a global style
+      const style = document.createElement('style');
+      style.textContent = \`
+        @font-face {
+          font-display: swap !important;
+        }
+      \`;
+      document.head.appendChild(style);
+    },
+
+    monitorCLS() {
+      if (!('PerformanceObserver' in window)) return;
+      
+      try {
+        let clsValue = 0;
+        
+        const observer = new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
+            if (!entry.hadRecentInput) {
+              clsValue += entry.value;
+            }
+          }
+        });
+        
+        observer.observe({ type: 'layout-shift', buffered: true });
+        
+        // Log final CLS on page hide
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'hidden') {
+            log('Final CLS:', clsValue.toFixed(4));
+          }
+        });
+      } catch {}
+    }
+  };
+
+  // ============================================================================
+  // LAYER 7: ADAPTIVE NAVIGATION (Learning Engine)
+  // ============================================================================
+  
+  const AdaptiveNavigation = {
+    currentPath: location.pathname,
+
+    init() {
+      const start = now();
+      
+      Storage.data.visitCount++;
+      
+      // Set up navigation tracking
+      this.setupTracking();
+      
+      // Apply predictions if we have data
+      if (Storage.data.visitCount >= 3) {
+        this.applyPredictions();
+      }
+      
+      // Mobile-first: touch events
+      this.setupTouchPrefetch();
+      
+      // Scroll prediction
+      this.setupScrollPrediction();
+      
+      Storage.save();
+      log(\`AdaptiveNavigation completed in \${(now() - start).toFixed(1)}ms\`);
+    },
+
+    setupTracking() {
+      // Track navigation patterns
+      document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href]');
+        if (!link) return;
+        
+        try {
+          const url = new URL(link.href, location.origin);
+          if (url.origin !== location.origin) return;
+          if (isExcludedPath(url.pathname)) return;
+          
+          this.recordTransition(this.currentPath, url.pathname);
+        } catch {}
+      }, true);
+    },
+
+    recordTransition(from, to) {
+      if (from === to) return;
+      
+      if (!Storage.data.navigationModel[from]) {
+        Storage.data.navigationModel[from] = {};
+      }
+      
+      if (!Storage.data.navigationModel[from][to]) {
+        Storage.data.navigationModel[from][to] = 0;
+      }
+      
+      Storage.data.navigationModel[from][to]++;
+      Storage.save();
+    },
+
+    getPredictions() {
+      const model = Storage.data.navigationModel[this.currentPath];
+      if (!model) return [];
+      
+      const total = Object.values(model).reduce((a, b) => a + b, 0);
+      if (total < 2) return [];
+      
+      return Object.entries(model)
+        .map(([path, count]) => ({
+          path,
+          confidence: count / total,
+          count
+        }))
+        .filter(p => p.confidence >= 0.25)
+        .sort((a, b) => b.confidence - a.confidence)
+        .slice(0, 3);
+    },
+
+    applyPredictions() {
+      const predictions = this.getPredictions();
+      const strategy = DeviceProfiler.getStrategy();
+      
+      if (predictions.length === 0) return;
+      
+      log('Predictions:', predictions, 'Strategy:', strategy);
+      
+      // Apply based on strategy
+      if (strategy === 'aggressive') {
+        // Prefetch top 3
+        predictions.forEach(p => this.prefetch(p.path));
+        
+        // Prerender #1 if very confident
+        if (predictions[0].confidence >= 0.6) {
+          this.prerender(predictions[0].path);
+        }
+      } else if (strategy === 'moderate') {
+        // Prefetch top 2
+        predictions.slice(0, 2).forEach(p => this.prefetch(p.path));
+      } else if (strategy === 'conservative') {
+        // Prefetch top 1 only
+        if (predictions[0].confidence >= 0.5) {
+          this.prefetch(predictions[0].path);
+        }
+      }
+      // minimal = no prefetch
+    },
+
+    prefetch(path) {
+      if (this._prefetched?.has(path)) return;
+      this._prefetched = this._prefetched || new Set();
+      
+      // Use Speculation Rules if available
+      if (HTMLScriptElement.supports?.('speculationrules')) {
+        const script = document.createElement('script');
+        script.type = 'speculationrules';
+        script.textContent = JSON.stringify({
+          prefetch: [{ urls: [path], eagerness: 'immediate' }]
+        });
+        document.head.appendChild(script);
+      } else {
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = path;
+        link.as = 'document';
+        document.head.appendChild(link);
+      }
+      
+      this._prefetched.add(path);
+      log('Prefetched:', path);
+    },
+
+    prerender(path) {
+      if (!HTMLScriptElement.supports?.('speculationrules')) return;
+      if (this._prerendered?.has(path)) return;
+      this._prerendered = this._prerendered || new Set();
+      
+      const script = document.createElement('script');
+      script.type = 'speculationrules';
+      script.textContent = JSON.stringify({
+        prerender: [{ urls: [path], eagerness: 'moderate' }]
+      });
+      document.head.appendChild(script);
+      
+      this._prerendered.add(path);
+      log('Prerendered:', path);
+    },
+
+    setupTouchPrefetch() {
+      // Mobile: prefetch on touchstart (150-300ms before click)
+      document.addEventListener('touchstart', (e) => {
+        const link = e.target.closest('a[href]');
+        if (!link) return;
+        
+        try {
+          const url = new URL(link.href, location.origin);
+          if (url.origin !== location.origin) return;
+          if (isExcludedPath(url.pathname)) return;
+          
+          this.prefetch(url.pathname);
+        } catch {}
+      }, { passive: true });
+    },
+
+    setupScrollPrediction() {
+      let lastScrollTop = 0;
+      let scrollVelocity = 0;
+      let ticking = false;
+      
+      window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        
+        raf(() => {
+          const currentScroll = window.scrollY;
+          scrollVelocity = currentScroll - lastScrollTop;
+          lastScrollTop = currentScroll;
+          
+          // If scrolling down fast, preload images further ahead
+          if (scrollVelocity > 50) {
+            this.preloadAheadImages(scrollVelocity);
+          }
+          
+          ticking = false;
+        });
+      }, { passive: true });
+    },
+
+    preloadAheadImages(velocity) {
+      const lookahead = Math.min(velocity * 3, window.innerHeight * 2);
+      const threshold = window.scrollY + window.innerHeight + lookahead;
+      
+      document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        const rect = img.getBoundingClientRect();
+        const absoluteTop = window.scrollY + rect.top;
+        
+        if (absoluteTop < threshold && !img._boosted) {
+          img._boosted = true;
+          img.loading = 'eager';
+          if ('fetchPriority' in img) {
+            img.fetchPriority = 'high';
+          }
+        }
+      });
+    }
+  };
+
+
+  // ============================================================================
+  // FONT OPTIMIZATION MODULE
+  // ============================================================================
+  
+  const FontOptimizer = {
+    init() {
+      const start = now();
+      
+      // Preload critical fonts
+      this.preloadFonts();
+      
+      // Add font-display: swap
+      this.ensureFontDisplay();
+      
+      log(\`FontOptimizer completed in \${(now() - start).toFixed(1)}ms\`);
+    },
+
+    preloadFonts() {
+      // Find font URLs in stylesheets
+      const fontUrls = new Set();
+      
+      // Check for Google Fonts
+      document.querySelectorAll('link[href*="fonts.googleapis.com"]').forEach(link => {
+        // Google Fonts are already optimized, just ensure preconnect
+        const preconnect = document.createElement('link');
+        preconnect.rel = 'preconnect';
+        preconnect.href = 'https://fonts.gstatic.com';
+        preconnect.crossOrigin = 'anonymous';
+        if (!document.querySelector('link[rel="preconnect"][href*="fonts.gstatic.com"]')) {
+          document.head.appendChild(preconnect);
+        }
+      });
+      
+      // Scan for font preload opportunities
+      document.querySelectorAll('style').forEach(style => {
+        const fontMatches = style.textContent.match(/url\\(["']?([^"')]+\\.(woff2?|ttf|otf))/gi);
+        if (fontMatches) {
+          fontMatches.forEach(match => {
+            const url = match.replace(/url\\(["']?/, '');
+            fontUrls.add(url);
+          });
+        }
+      });
+      
+      // Preload first 2 fonts (usually the most critical)
+      let preloaded = 0;
+      fontUrls.forEach(url => {
+        if (preloaded >= 2) return;
+        if (document.querySelector(\`link[rel="preload"][href="\${url}"]\`)) return;
+        
+        const preload = document.createElement('link');
+        preload.rel = 'preload';
+        preload.as = 'font';
+        preload.type = 'font/woff2';
+        preload.href = url;
+        preload.crossOrigin = 'anonymous';
+        document.head.appendChild(preload);
+        preloaded++;
+        
+        log('Preloaded font:', url);
+      });
+    },
+
+    ensureFontDisplay() {
+      // This is a fallback - inject font-display swap globally
+      if (!document.querySelector('#hoox-font-display')) {
+        const style = document.createElement('style');
+        style.id = 'hoox-font-display';
+        style.textContent = \`
+          /* Hoox: Ensure all fonts use swap */
+          @font-face { font-display: swap; }
+        \`;
+        document.head.appendChild(style);
+      }
+    }
+  };
+
+  // ============================================================================
+  // THIRD-PARTY DELAY MODULE
+  // ============================================================================
+  
+  const ThirdPartyDelay = {
+    delayed: [],
+
+    init() {
+      // Delay known heavy third-party scripts until after LCP
+      this.setupDelayedLoading();
+    },
+
+    setupDelayedLoading() {
+      // Scripts to delay until interaction or 5 seconds
+      const delayPatterns = [
+        { pattern: /chat|intercom|drift|crisp|tawk|livechat|zendesk/i, delay: 'interaction' },
+        { pattern: /facebook|fb.*pixel|fbevents/i, delay: 3000 },
+        { pattern: /hotjar|clarity|mouseflow|fullstory/i, delay: 2000 },
+        { pattern: /recaptcha/i, delay: 'interaction' }
+      ];
+      
+      // Monitor script insertion
+      const originalCreateElement = document.createElement.bind(document);
+      
+      document.createElement = function(tagName) {
+        const element = originalCreateElement(tagName);
+        
+        if (tagName.toLowerCase() === 'script') {
+          const originalSetAttribute = element.setAttribute.bind(element);
+          
+          element.setAttribute = function(name, value) {
+            if (name === 'src') {
+              for (const { pattern, delay } of delayPatterns) {
+                if (pattern.test(value)) {
+                  log('Will delay script:', value);
+                  // We can't prevent it, but we can log it
+                }
+              }
+            }
+            return originalSetAttribute(name, value);
+          };
+        }
+        
+        return element;
+      };
+    }
+  };
+
+  // ============================================================================
+  // PERFORMANCE REPORTER
+  // ============================================================================
+  
+  const PerformanceReporter = {
+    metrics: {},
+
+    init() {
+      this.collectMetrics();
+    },
+
+    collectMetrics() {
+      // Collect Web Vitals
+      if (!('PerformanceObserver' in window)) return;
+      
+      // LCP
+      try {
+        new PerformanceObserver((list) => {
+          const entries = list.getEntries();
+          const lastEntry = entries[entries.length - 1];
+          this.metrics.lcp = lastEntry.startTime;
+          log('LCP:', this.metrics.lcp.toFixed(0) + 'ms');
+        }).observe({ type: 'largest-contentful-paint', buffered: true });
+      } catch {}
+      
+      // FCP
+      try {
+        new PerformanceObserver((list) => {
+          const entries = list.getEntries();
+          entries.forEach(entry => {
+            if (entry.name === 'first-contentful-paint') {
+              this.metrics.fcp = entry.startTime;
+              log('FCP:', this.metrics.fcp.toFixed(0) + 'ms');
+            }
+          });
+        }).observe({ type: 'paint', buffered: true });
+      } catch {}
+      
+      // CLS
+      try {
+        let clsValue = 0;
+        new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
+            if (!entry.hadRecentInput) {
+              clsValue += entry.value;
+            }
+          }
+          this.metrics.cls = clsValue;
+        }).observe({ type: 'layout-shift', buffered: true });
+      } catch {}
+      
+      // INP (approximation via FID)
+      try {
+        new PerformanceObserver((list) => {
+          const entries = list.getEntries();
+          entries.forEach(entry => {
+            this.metrics.fid = entry.processingStart - entry.startTime;
+            log('FID:', this.metrics.fid.toFixed(0) + 'ms');
+          });
+        }).observe({ type: 'first-input', buffered: true });
+      } catch {}
+
+      // Save metrics on page hide
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+          this.saveMetrics();
+        }
+      });
+    },
+
+    saveMetrics() {
+      // Store average LCP for tracking improvement
+      if (this.metrics.lcp) {
+        const prev = Storage.data.avgLCP;
+        if (prev) {
+          Storage.data.avgLCP = (prev + this.metrics.lcp) / 2;
+        } else {
+          Storage.data.avgLCP = this.metrics.lcp;
+        }
+        Storage.save();
+        log('Average LCP updated:', Storage.data.avgLCP.toFixed(0) + 'ms');
+      }
+    },
+
+    getReport() {
+      return {
+        ...this.metrics,
+        visitCount: Storage.data.visitCount,
+        strategy: DeviceProfiler.getStrategy(),
+        profile: DeviceProfiler.profile
+      };
+    }
+  };
+
+  // ============================================================================
+  // MAIN INITIALIZATION
+  // ============================================================================
+  
+  const HooxMega = {
+    version: VERSION,
+    initialized: false,
+
+    init() {
+      // Prevent double init
+      if (this.initialized) return;
+      this.initialized = true;
+      
+      // Don't run on bots
+      if (navigator.webdriver) return;
+      
+      // Don't run during prerender
+      if (document.prerendering) {
+        document.addEventListener('prerenderingchange', () => this.init());
+        return;
+      }
+
+      const startTime = now();
+      log(\`HooxMega v\${VERSION} initializing...\`);
+
+      // Load storage first
+      Storage.load();
+
+      // PHASE 1: EMERGENCY (sync, immediate)
+      DeviceProfiler.analyze();
+      CriticalPath.init();
+      
+      // PHASE 2: CRITICAL (high priority, but can yield)
+      raf(() => {
+        LCPAssassin.init();
+        FontOptimizer.init();
+      });
+      
+      // PHASE 3: OPTIMIZATION (normal priority)
+      idle(() => {
+        ImageIntelligence.init();
+        JSExecutionControl.init();
+        NetworkWaterfall.init();
+        CLSEliminator.init();
+      }, PHASE_BUDGETS.optimization);
+      
+      // PHASE 4: LEARNING (idle time)
+      idle(() => {
+        AdaptiveNavigation.init();
+        ThirdPartyDelay.init();
+        PerformanceReporter.init();
+      }, PHASE_BUDGETS.learning);
+
+      log(\`HooxMega initialized in \${(now() - startTime).toFixed(1)}ms\`);
+      log(\`Visit #\${Storage.data.visitCount}, Strategy: \${DeviceProfiler.getStrategy()}\`);
+    },
+
+    // Public API
+    getStats() {
+      return {
+        version: VERSION,
+        visits: Storage.data.visitCount,
+        strategy: DeviceProfiler.getStrategy(),
+        profile: DeviceProfiler.profile,
+        predictions: AdaptiveNavigation.getPredictions(),
+        lcpSelector: Storage.data.lcpSelector,
+        metrics: PerformanceReporter.getReport()
+      };
+    },
+
+    reset() {
+      localStorage.removeItem(STORAGE_KEY);
+      log('Storage cleared');
+    },
+
+    // Manual trigger for SPA navigation
+    onNavigate() {
+      AdaptiveNavigation.currentPath = location.pathname;
+      AdaptiveNavigation.applyPredictions();
+      ImageIntelligence.processImages();
+    }
+  };
+
+  // ============================================================================
+  // AUTO-INITIALIZE
+  // ============================================================================
+  
+  // Run as early as possible
+  if (document.readyState === 'loading') {
+    // Script is in <head>, run immediately for critical path
+    HooxMega.init();
+  } else {
+    // DOM already loaded
+    HooxMega.init();
+  }
+
+  // Expose globally
+  window.HooxMega = HooxMega;
+
+})();
+`;
+        const MIN_SCRIPT = `!function(){"use strict";const e="3.0.0",t="hoox_mega_v3",i={emergency:50,critical:200,optimization:500,learning:1/0},r=(...e)=>false,n=()=>performance.now(),o=e=>requestAnimationFrame(e),s=(e,t=2e3)=>{"requestIdleCallback"in window?requestIdleCallback(e,{timeout:t}):setTimeout(e,100)},c=e=>{const t=e.getBoundingClientRect();return t.top<window.innerHeight&&t.bottom>0},a=e=>{try{return new URL(e,location.origin).origin}catch{return null}},d=e=>[/logout/i,/signout/i,/cart/i,/checkout/i,/account/i].some(t=>t.test(e)),l={profile:null,analyze(){const e={isMobile:/Mobile|Android|iPhone|iPad/i.test(navigator.userAgent),isTouch:"ontouchstart"in window||navigator.maxTouchPoints>0,screenWidth:window.screen.width,screenHeight:window.screen.height,viewportWidth:window.innerWidth,viewportHeight:window.innerHeight,pixelRatio:window.devicePixelRatio||1,memory:navigator.deviceMemory||null,cores:navigator.hardwareConcurrency||null,connection:this.getConnectionInfo(),deviceScore:0,networkScore:0,totalScore:0,strategy:"moderate"};return e.deviceScore=this.calculateDeviceScore(e),e.networkScore=this.calculateNetworkScore(e),e.totalScore=e.deviceScore+e.networkScore,e.strategy=this.determineStrategy(e.totalScore,e),this.profile=e,e},getConnectionInfo(){const e=navigator.connection;return e?{type:e.effectiveType||"unknown",downlink:e.downlink||null,rtt:e.rtt||null,saveData:e.saveData||!1}:{type:"unknown",saveData:!1}},calculateDeviceScore(e){let t=5;return e.memory&&(e.memory>=8?t+=2:e.memory>=4?t+=1:e.memory<=2&&(t-=2)),e.cores&&(e.cores>=8?t+=2:e.cores>=4?t+=1:e.cores<=2&&(t-=1)),e.isMobile&&(t-=1),Math.max(0,Math.min(10,t))},calculateNetworkScore(e){let t=5;const i=e.connection;if(i.saveData)return 0;switch(i.type){case"4g":t+=3;break;case"3g":t+=0;break;case"2g":t-=3;break;case"slow-2g":t-=5}return i.rtt&&(i.rtt>500?t-=2:i.rtt>200?t-=1:i.rtt<50&&(t+=1)),Math.max(0,Math.min(10,t))},determineStrategy:(e,t)=>t.connection.saveData?"minimal":e>=14?"aggressive":e>=10?"moderate":e>=6?"conservative":"minimal",getStrategy(){return this.profile?.strategy||"moderate"}},h={data:null,load(){try{const e=localStorage.getItem(t);this.data=e?JSON.parse(e):this.getDefault(),3!==this.data.version&&(this.data=this.getDefault())}catch{this.data=this.getDefault()}return this.data},save(){try{localStorage.setItem(t,JSON.stringify(this.data))}catch{}},getDefault:()=>({version:3,visitCount:0,lcpSelector:null,criticalOrigins:[],navigationModel:{},prefetchHits:0,prefetchMisses:0,avgLCP:null})},u={init(){const e=n();this.injectPreconnects(),this.deferNonCriticalCSS(),this.boostCriticalResources(),(n()-e).toFixed(1)},injectPreconnects(){const e=h.data.criticalOrigins||[],t=[...new Set(["https://fonts.googleapis.com","https://fonts.gstatic.com","https://cdn.shopify.com","https://www.googletagmanager.com",...e])],i=new Set(Array.from(document.querySelectorAll('link[rel="preconnect"]')).map(e=>e.href.replace(/\\/\$/,"")));let r=0;t.forEach(e=>{if(r>=6)return;if(i.has(e))return;const t=document.createElement("link");t.rel="preconnect",t.href=e,t.crossOrigin="anonymous",document.head.appendChild(t),r++})},deferNonCriticalCSS(){document.querySelectorAll('link[rel="stylesheet"]').forEach(e=>{const t=e.href;if(e.media&&"all"!==e.media&&"screen"!==e.media)return;(/font/i.test(t)||/icon/i.test(t)||/print/i.test(t)||/animation/i.test(t))&&(e.media="print",e.onload=function(){this.media="all"})})},boostCriticalResources(){const e=h.data.lcpSelector;if(e){const t=document.querySelector(e);if(t){const e=t.src||t.currentSrc;if(e&&!document.querySelector(\`link[rel="preload"][href="\${e}"]\`)){const t=document.createElement("link");t.rel="preload",t.as="image",t.href=e,t.fetchPriority="high",document.head.insertBefore(t,document.head.firstChild)}}}}},f={lcpCandidate:null,init(){const e=n();this.findLCPCandidate(),this.lcpCandidate&&this.boostLCP(this.lcpCandidate),this.setupObserver(),(n()-e).toFixed(1)},findLCPCandidate(){window.innerHeight;const e=[".hero img",".hero-image",".banner img",".slider img",'[class*="hero"] img','[class*="banner"] img',"main > section:first-child img","header img[src]"];for(const t of e){const e=document.querySelector(t);if(e&&c(e))return this.lcpCandidate=e,void r()}const t=Array.from(document.querySelectorAll("img[src]")).filter(e=>c(e)).map(e=>({el:e,size:e.offsetWidth*e.offsetHeight})).sort((e,t)=>t.size-e.size);if(t.length>0&&t[0].size>1e4)return this.lcpCandidate=t[0].el,void this.lcpCandidate.src;const i=Array.from(document.querySelectorAll("div, section, header")).filter(e=>{if(!c(e))return!1;const t=getComputedStyle(e);return t.backgroundImage&&"none"!==t.backgroundImage}).sort((e,t)=>t.offsetWidth*t.offsetHeight-e.offsetWidth*e.offsetHeight);if(i.length>0){const e=getComputedStyle(i[0]).backgroundImage.match(/url\\(["']?(.+?)["']?\\)/);e&&this.preloadBackgroundImage(e[1])}},boostLCP(e){"fetchPriority"in e&&(e.fetchPriority="high"),"lazy"===e.loading&&(e.loading="eager"),e.decoding="sync";const t=e.src||e.currentSrc;if(t&&!document.querySelector(\`link[rel="preload"][href="\${t}"]\`)){const e=document.createElement("link");e.rel="preload",e.as="image",e.href=t,e.fetchPriority="high",document.head.appendChild(e)}},preloadBackgroundImage(e){const t=document.createElement("link");t.rel="preload",t.as="image",t.href=e,t.fetchPriority="high",document.head.appendChild(t)},setupObserver(){if("PerformanceObserver"in window)try{new PerformanceObserver(e=>{const t=e.getEntries(),i=t[t.length-1];if(i?.element){const e=this.createSelector(i.element);e&&e!==h.data.lcpSelector&&(h.data.lcpSelector=e,h.save())}}).observe({type:"largest-contentful-paint",buffered:!0})}catch{}},createSelector(e){if(e.id)return\`#\${e.id}\`;if(e.className&&"string"==typeof e.className){const t=e.className.trim().split(/\\s+/).filter(e=>e&&!e.includes(":")&&e.length<30).slice(0,2);if(t.length)return e.tagName.toLowerCase()+"."+t.join(".")}return null}},m={processed:new WeakSet,init(){const e=n();this.processImages(),this.observeNewImages(),(n()-e).toFixed(1)},processImages(){const e=document.querySelectorAll("img"),t=window.innerHeight;e.forEach(e=>{if(this.processed.has(e))return;this.processed.add(e);const i=e.getBoundingClientRect(),r=i.top<t,n=i.top<2*t;r?this.optimizeAboveFold(e):n?this.optimizeNearViewport(e):this.optimizeBelowFold(e),this.ensureDimensions(e)})},optimizeAboveFold(e){e!==f.lcpCandidate&&("fetchPriority"in e&&(e.fetchPriority="high"),"lazy"===e.loading&&(e.loading="eager"),e.decoding="async")},optimizeNearViewport(e){"fetchPriority"in e&&(e.fetchPriority="auto"),e.loading="eager",e.decoding="async"},optimizeBelowFold(e){"fetchPriority"in e&&(e.fetchPriority="low"),e.loading||(e.loading="lazy"),e.decoding="async"},ensureDimensions(e){if(e.width&&e.height)return;if(e.style.width&&e.style.height)return;if(e.style.aspectRatio)return;if(e.naturalWidth&&e.naturalHeight)return e.width=e.naturalWidth,void(e.height=e.naturalHeight);const t=e.getAttribute("width"),i=e.getAttribute("height");t&&i&&(e.style.aspectRatio=\`\${t} / \${i}\`)},observeNewImages(){if(!("MutationObserver"in window))return;new MutationObserver(e=>{e.forEach(e=>{e.addedNodes.forEach(e=>{"IMG"===e.nodeName&&this.processImage(e),e.querySelectorAll&&e.querySelectorAll("img").forEach(e=>this.processImage(e))})})}).observe(document.body,{childList:!0,subtree:!0})},processImage(e){this.processed.has(e)||(this.processed.add(e),this.optimizeBelowFold(e),this.ensureDimensions(e))}},p={deferredScripts:[],init(){const e=n();this.deferThirdParty(),this.setupYielding(),(n()-e).toFixed(1)},deferThirdParty(){const e=[/google-analytics/i,/googletagmanager/i,/facebook.*pixel/i,/fbevents/i,/hotjar/i,/clarity/i,/intercom/i,/drift/i,/crisp/i,/tawk/i,/livechat/i,/zendesk/i];document.querySelectorAll("script[src]").forEach(t=>{const i=t.src;e.some(e=>e.test(i))&&!t.defer&&t.async}),this.interceptScriptAddition()},interceptScriptAddition(){const e=Element.prototype.appendChild;Element.prototype.appendChild=function(t){if("SCRIPT"===t.nodeName&&t.src){const e=t.src;!/analytics|pixel|tracking|gtag|fbq/i.test(e)||t.defer||t.async||(t.defer=!0)}return e.call(this,t)}},setupYielding(){window.hooxYield=async function(){"scheduler"in window&&"yield"in scheduler?await scheduler.yield():await new Promise(e=>setTimeout(e,0))}}},g={discoveredOrigins:new Set,init(){const e=n();this.discoverOrigins(),this.injectDNSPrefetch(),this.storeCriticalOrigins(),(n()-e).toFixed(1)},discoverOrigins(){["script[src]","link[href]","img[src]","iframe[src]","video[src]","source[src]"].forEach(e=>{document.querySelectorAll(e).forEach(e=>{const t=e.src||e.href;t&&(e=>{const t=a(e);return t&&t!==location.origin})(t)&&this.discoveredOrigins.add(a(t))})}),Array.from(this.discoveredOrigins)},injectDNSPrefetch(){const e=new Set;document.querySelectorAll('link[rel="preconnect"], link[rel="dns-prefetch"]').forEach(t=>e.add(t.href.replace(/\\/\$/,"")));let t=0;this.discoveredOrigins.forEach(i=>{if(t>=8)return;if(e.has(i))return;const r=document.createElement("link");r.rel="dns-prefetch",r.href=i,document.head.appendChild(r),t++})},storeCriticalOrigins(){const e=Array.from(this.discoveredOrigins).filter(e=>["cdn.shopify.com","fonts.googleapis.com","fonts.gstatic.com","images.unsplash.com","cloudflare.com"].some(t=>e.includes(t))).slice(0,6);e.length>0&&(h.data.criticalOrigins=e,h.save())}},y={init(){const e=n();this.fixImageDimensions(),this.fixEmbedDimensions(),this.fixFontDisplay(),this.monitorCLS(),(n()-e).toFixed(1)},fixImageDimensions(){document.querySelectorAll("img:not([width]):not([height])").forEach(e=>{if(e.complete&&e.naturalWidth)return e.setAttribute("width",e.naturalWidth),void e.setAttribute("height",e.naturalHeight);e.addEventListener("load",function(){this.width||this.height||(this.style.aspectRatio=\`\${this.naturalWidth} / \${this.naturalHeight}\`)},{once:!0})})},fixEmbedDimensions(){document.querySelectorAll("iframe, video, embed, object").forEach(e=>{e.width||e.height||e.style.aspectRatio||e.src&&/youtube|vimeo|video/i.test(e.src)&&(e.style.aspectRatio="16 / 9")})},fixFontDisplay(){const e=document.createElement("style");e.textContent="\\n        @font-face {\\n          font-display: swap !important;\\n        }\\n      ",document.head.appendChild(e)},monitorCLS(){if("PerformanceObserver"in window)try{let e=0;new PerformanceObserver(t=>{for(const i of t.getEntries())i.hadRecentInput||(e+=i.value)}).observe({type:"layout-shift",buffered:!0}),document.addEventListener("visibilitychange",()=>{"hidden"===document.visibilityState&&e.toFixed(4)})}catch{}}},v={currentPath:location.pathname,init(){const e=n();h.data.visitCount++,this.setupTracking(),h.data.visitCount>=3&&this.applyPredictions(),this.setupTouchPrefetch(),this.setupScrollPrediction(),h.save(),(n()-e).toFixed(1)},setupTracking(){document.addEventListener("click",e=>{const t=e.target.closest("a[href]");if(t)try{const e=new URL(t.href,location.origin);if(e.origin!==location.origin)return;if(d(e.pathname))return;this.recordTransition(this.currentPath,e.pathname)}catch{}},!0)},recordTransition(e,t){e!==t&&(h.data.navigationModel[e]||(h.data.navigationModel[e]={}),h.data.navigationModel[e][t]||(h.data.navigationModel[e][t]=0),h.data.navigationModel[e][t]++,h.save())},getPredictions(){const e=h.data.navigationModel[this.currentPath];if(!e)return[];const t=Object.values(e).reduce((e,t)=>e+t,0);return t<2?[]:Object.entries(e).map(([e,i])=>({path:e,confidence:i/t,count:i})).filter(e=>e.confidence>=.25).sort((e,t)=>t.confidence-e.confidence).slice(0,3)},applyPredictions(){const e=this.getPredictions(),t=l.getStrategy();0!==e.length&&("aggressive"===t?(e.forEach(e=>this.prefetch(e.path)),e[0].confidence>=.6&&this.prerender(e[0].path)):"moderate"===t?e.slice(0,2).forEach(e=>this.prefetch(e.path)):"conservative"===t&&e[0].confidence>=.5&&this.prefetch(e[0].path))},prefetch(e){if(!this._prefetched?.has(e)){if(this._prefetched=this._prefetched||new Set,HTMLScriptElement.supports?.("speculationrules")){const t=document.createElement("script");t.type="speculationrules",t.textContent=JSON.stringify({prefetch:[{urls:[e],eagerness:"immediate"}]}),document.head.appendChild(t)}else{const t=document.createElement("link");t.rel="prefetch",t.href=e,t.as="document",document.head.appendChild(t)}this._prefetched.add(e)}},prerender(e){if(!HTMLScriptElement.supports?.("speculationrules"))return;if(this._prerendered?.has(e))return;this._prerendered=this._prerendered||new Set;const t=document.createElement("script");t.type="speculationrules",t.textContent=JSON.stringify({prerender:[{urls:[e],eagerness:"moderate"}]}),document.head.appendChild(t),this._prerendered.add(e)},setupTouchPrefetch(){document.addEventListener("touchstart",e=>{const t=e.target.closest("a[href]");if(t)try{const e=new URL(t.href,location.origin);if(e.origin!==location.origin)return;if(d(e.pathname))return;this.prefetch(e.pathname)}catch{}},{passive:!0})},setupScrollPrediction(){let e=0,t=0,i=!1;window.addEventListener("scroll",()=>{i||(i=!0,o(()=>{const r=window.scrollY;t=r-e,e=r,t>50&&this.preloadAheadImages(t),i=!1}))},{passive:!0})},preloadAheadImages(e){const t=Math.min(3*e,2*window.innerHeight),i=window.scrollY+window.innerHeight+t;document.querySelectorAll('img[loading="lazy"]').forEach(e=>{const t=e.getBoundingClientRect();window.scrollY+t.top<i&&!e._boosted&&(e._boosted=!0,e.loading="eager","fetchPriority"in e&&(e.fetchPriority="high"))})}},w={init(){const e=n();this.preloadFonts(),this.ensureFontDisplay(),(n()-e).toFixed(1)},preloadFonts(){const e=new Set;document.querySelectorAll('link[href*="fonts.googleapis.com"]').forEach(e=>{const t=document.createElement("link");t.rel="preconnect",t.href="https://fonts.gstatic.com",t.crossOrigin="anonymous",document.querySelector('link[rel="preconnect"][href*="fonts.gstatic.com"]')||document.head.appendChild(t)}),document.querySelectorAll("style").forEach(t=>{const i=t.textContent.match(/url\\(["']?([^"')]+\\.(woff2?|ttf|otf))/gi);i&&i.forEach(t=>{const i=t.replace(/url\\(["']?/,"");e.add(i)})});let t=0;e.forEach(e=>{if(t>=2)return;if(document.querySelector(\`link[rel="preload"][href="\${e}"]\`))return;const i=document.createElement("link");i.rel="preload",i.as="font",i.type="font/woff2",i.href=e,i.crossOrigin="anonymous",document.head.appendChild(i),t++})},ensureFontDisplay(){if(!document.querySelector("#hoox-font-display")){const e=document.createElement("style");e.id="hoox-font-display",e.textContent="\\n          /* Hoox: Ensure all fonts use swap */\\n          @font-face { font-display: swap; }\\n        ",document.head.appendChild(e)}}},S={delayed:[],init(){this.setupDelayedLoading()},setupDelayedLoading(){const e=[{pattern:/chat|intercom|drift|crisp|tawk|livechat|zendesk/i,delay:"interaction"},{pattern:/facebook|fb.*pixel|fbevents/i,delay:3e3},{pattern:/hotjar|clarity|mouseflow|fullstory/i,delay:2e3},{pattern:/recaptcha/i,delay:"interaction"}],t=document.createElement.bind(document);document.createElement=function(i){const n=t(i);if("script"===i.toLowerCase()){const t=n.setAttribute.bind(n);n.setAttribute=function(i,n){if("src"===i)for(const{pattern:t,delay:i}of e)t.test(n)&&r();return t(i,n)}}return n}}},b={metrics:{},init(){this.collectMetrics()},collectMetrics(){if("PerformanceObserver"in window){try{new PerformanceObserver(e=>{const t=e.getEntries(),i=t[t.length-1];this.metrics.lcp=i.startTime,this.metrics.lcp.toFixed(0)}).observe({type:"largest-contentful-paint",buffered:!0})}catch{}try{new PerformanceObserver(e=>{e.getEntries().forEach(e=>{"first-contentful-paint"===e.name&&(this.metrics.fcp=e.startTime,this.metrics.fcp.toFixed(0))})}).observe({type:"paint",buffered:!0})}catch{}try{let e=0;new PerformanceObserver(t=>{for(const i of t.getEntries())i.hadRecentInput||(e+=i.value);this.metrics.cls=e}).observe({type:"layout-shift",buffered:!0})}catch{}try{new PerformanceObserver(e=>{e.getEntries().forEach(e=>{this.metrics.fid=e.processingStart-e.startTime,this.metrics.fid.toFixed(0)})}).observe({type:"first-input",buffered:!0})}catch{}document.addEventListener("visibilitychange",()=>{"hidden"===document.visibilityState&&this.saveMetrics()})}},saveMetrics(){if(this.metrics.lcp){const e=h.data.avgLCP;h.data.avgLCP=e?(e+this.metrics.lcp)/2:this.metrics.lcp,h.save(),h.data.avgLCP.toFixed(0)}},getReport(){return{...this.metrics,visitCount:h.data.visitCount,strategy:l.getStrategy(),profile:l.profile}}},C={version:e,initialized:!1,init(){if(this.initialized)return;if(this.initialized=!0,navigator.webdriver)return;if(document.prerendering)return void document.addEventListener("prerenderingchange",()=>this.init());const e=n();h.load(),l.analyze(),u.init(),o(()=>{f.init(),w.init()}),s(()=>{m.init(),p.init(),g.init(),y.init()},i.optimization),s(()=>{v.init(),S.init(),b.init()},i.learning),(n()-e).toFixed(1),h.data.visitCount,l.getStrategy()},getStats:()=>({version:e,visits:h.data.visitCount,strategy:l.getStrategy(),profile:l.profile,predictions:v.getPredictions(),lcpSelector:h.data.lcpSelector,metrics:b.getReport()}),reset(){localStorage.removeItem(t)},onNavigate(){v.currentPath=location.pathname,v.applyPredictions(),m.processImages()}};document.readyState,C.init(),window.HooxMega=C}();`;
+        
+        document.getElementById('code-full').textContent = FULL_SCRIPT;
+        document.getElementById('code-min').textContent = MIN_SCRIPT;
     </script>
 </body>
 </html>
