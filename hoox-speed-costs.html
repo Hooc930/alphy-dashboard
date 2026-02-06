@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoox Speed: AWS Cost Breakdown</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #0a0a0f;
+            color: #e0e0e0;
+        }
+        h1 { color: #00ff88; border-bottom: 2px solid #00ff88; padding-bottom: 10px; }
+        h2 { color: #00d4ff; margin-top: 40px; }
+        h3 { color: #ffd93d; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+        th, td { padding: 12px; text-align: left; border: 1px solid #2a2a3a; }
+        th { background: #1a1a2a; color: #00ff88; }
+        tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+        .highlight { background: linear-gradient(135deg, #00ff8822, #00d4ff22); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #00ff88; }
+        .warning { background: linear-gradient(135deg, #ff6b6b22, #ffd93d22); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #ffd93d; }
+        .card { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 10px; margin: 20px 0; border: 1px solid #2a2a3a; }
+        code { background: #1a1a2a; padding: 2px 8px; border-radius: 4px; color: #00ff88; }
+        .cost-low { color: #00ff88; font-weight: bold; }
+        .cost-medium { color: #ffd93d; font-weight: bold; }
+        .cost-high { color: #ff6b6b; font-weight: bold; }
+        .big-number { font-size: 2em; color: #00ff88; font-weight: bold; }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+        .summary-card { background: #1a1a2a; padding: 20px; border-radius: 10px; text-align: center; }
+        .summary-card .label { color: #888; font-size: 0.9em; }
+        .summary-card .value { font-size: 1.8em; color: #00ff88; font-weight: bold; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <h1>💰 Hoox Speed: Complete AWS Cost Breakdown</h1>
+    <p>Per Website, By Visitor Volume | February 2026</p>
+
+    <div class="summary-grid">
+        <div class="summary-card">
+            <div class="label">Core Features</div>
+            <div class="value">$0.005</div>
+            <div class="label">per 1K visitors</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">All Features</div>
+            <div class="value">$0.015</div>
+            <div class="label">per 1K visitors</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">With LLM</div>
+            <div class="value">$0.095</div>
+            <div class="label">per 1K visitors</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">Fixed/Store</div>
+            <div class="value">$1.10</div>
+            <div class="label">per month</div>
+        </div>
+    </div>
+
+    <h2>📊 AWS Pricing Reference</h2>
+    <table>
+        <tr><th>Service</th><th>Unit</th><th>Price</th></tr>
+        <tr><td>Lambda@Edge</td><td>Per 1M requests</td><td>$0.60</td></tr>
+        <tr><td>Lambda (Standard)</td><td>Per 1M requests</td><td>$0.20</td></tr>
+        <tr><td>CloudFront</td><td>Per GB (first 10TB)</td><td>$0.085</td></tr>
+        <tr><td>S3 Storage</td><td>Per GB/month</td><td>$0.023</td></tr>
+        <tr><td>DynamoDB Reads</td><td>Per 1M RRU</td><td>$0.25</td></tr>
+        <tr><td>DynamoDB Writes</td><td>Per 1M WRU</td><td>$1.25</td></tr>
+        <tr><td>Bedrock Claude Haiku</td><td>Per 1M input tokens</td><td>$0.25</td></tr>
+        <tr><td>Bedrock Claude Haiku</td><td>Per 1M output tokens</td><td>$1.25</td></tr>
+    </table>
+
+    <h2>🔧 Cost Per Feature (per 1,000 visitors)</h2>
+
+    <div class="card">
+        <h3>1️⃣ Predictive Prefetching</h3>
+        <p>Predict next pages, inject prefetch hints</p>
+        <table>
+            <tr><th>Component</th><th>Usage</th><th>Cost</th></tr>
+            <tr><td>Lambda@Edge</td><td>1,000 requests × 50ms</td><td>$0.0006</td></tr>
+            <tr><td>DynamoDB reads</td><td>1,000 reads</td><td>$0.00025</td></tr>
+            <tr><td><strong>Total</strong></td><td></td><td class="cost-low">$0.001</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h3>2️⃣ Adaptive Serving (Connection-Aware)</h3>
+        <p>Detect connection quality, serve appropriate assets</p>
+        <table>
+            <tr><th>Component</th><th>Usage</th><th>Cost</th></tr>
+            <tr><td>Lambda@Edge</td><td>1,000 requests × 30ms</td><td>$0.0006</td></tr>
+            <tr><td><strong>Total</strong></td><td></td><td class="cost-low">$0.001</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h3>3️⃣ Dynamic Critical CSS</h3>
+        <p>Serve personalized CSS bundles per user segment</p>
+        <table>
+            <tr><th>Component</th><th>Usage</th><th>Cost</th></tr>
+            <tr><td>Lambda@Edge</td><td>1,000 requests × 20ms</td><td>$0.0006</td></tr>
+            <tr><td>CloudFront</td><td>10MB served</td><td>$0.00085</td></tr>
+            <tr><td><strong>Total</strong></td><td></td><td class="cost-low">$0.0015</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h3>4️⃣ Resource Prioritization</h3>
+        <p>Learn which resources matter, inject priority hints</p>
+        <table>
+            <tr><th>Component</th><th>Usage</th><th>Cost</th></tr>
+            <tr><td>Lambda (async)</td><td>1,000 requests × 100ms</td><td>$0.00063</td></tr>
+            <tr><td>DynamoDB</td><td>100 writes + 1,000 reads</td><td>$0.000375</td></tr>
+            <tr><td><strong>Total</strong></td><td></td><td class="cost-low">$0.001</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h3>5️⃣ Personalized Page Construction</h3>
+        <p>Generate different HTML per user segment</p>
+        
+        <h4>Option A: Rule-Based (Recommended)</h4>
+        <table>
+            <tr><th>Component</th><th>Usage</th><th>Cost</th></tr>
+            <tr><td>Lambda@Edge</td><td>1,000 requests × 100ms</td><td>$0.00068</td></tr>
+            <tr><td>DynamoDB</td><td>2,000 reads</td><td>$0.0005</td></tr>
+            <tr><td>CloudFront</td><td>50MB served</td><td>$0.00425</td></tr>
+            <tr><td><strong>Total</strong></td><td></td><td class="cost-low">$0.006</td></tr>
+        </table>
+
+        <h4>Option B: LLM-Powered (Enterprise Only)</h4>
+        <table>
+            <tr><th>Component</th><th>Usage</th><th>Cost</th></tr>
+            <tr><td>Claude Haiku</td><td>100 calls × 500 tokens</td><td>$0.075</td></tr>
+            <tr><td>+ Rule-based costs</td><td></td><td>$0.006</td></tr>
+            <tr><td><strong>Total</strong></td><td></td><td class="cost-high">$0.08</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h3>6️⃣ Autonomous A/B Testing</h3>
+        <p>Auto-test optimizations, measure impact, deploy winners</p>
+        <table>
+            <tr><th>Component</th><th>Usage</th><th>Cost</th></tr>
+            <tr><td>Lambda@Edge</td><td>1,000 requests × 30ms</td><td>$0.0006</td></tr>
+            <tr><td>DynamoDB writes</td><td>1,000 writes</td><td>$0.00125</td></tr>
+            <tr><td>Lambda batch</td><td>1 analysis × 2s</td><td>$0.00002</td></tr>
+            <tr><td><strong>Total</strong></td><td></td><td class="cost-low">$0.002</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h3>7️⃣ Bandwidth Budgeting</h3>
+        <p>AI manages total page weight, makes smart tradeoffs</p>
+        <table>
+            <tr><th>Component</th><th>Usage</th><th>Cost</th></tr>
+            <tr><td>Lambda@Edge</td><td>1,000 requests × 50ms</td><td>$0.00064</td></tr>
+            <tr><td><strong>Total</strong></td><td></td><td class="cost-low">$0.001</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h3>8️⃣ Auto-Bottleneck Detection & Fix</h3>
+        <p>Monitor RUM, detect issues, auto-remediate</p>
+        <table>
+            <tr><th>Component</th><th>Usage</th><th>Cost</th></tr>
+            <tr><td>Lambda batch</td><td>1 analysis × 5s</td><td>$0.000083</td></tr>
+            <tr><td>DynamoDB</td><td>10 writes</td><td>$0.0000125</td></tr>
+            <tr><td>LLM (amortized)</td><td>Weekly analysis</td><td>$0.0001</td></tr>
+            <tr><td><strong>Total</strong></td><td></td><td class="cost-low">$0.0002</td></tr>
+        </table>
+    </div>
+
+    <h2>📈 Monthly Cost by Visitor Volume</h2>
+
+    <h3>Core Features Only ($0.005/1K)</h3>
+    <table>
+        <tr><th>Monthly Visitors</th><th>AWS Cost</th><th>Per Visitor</th></tr>
+        <tr><td>10,000</td><td class="cost-low">$0.05</td><td>$0.000005</td></tr>
+        <tr><td>100,000</td><td class="cost-low">$0.50</td><td>$0.000005</td></tr>
+        <tr><td>500,000</td><td class="cost-low">$2.50</td><td>$0.000005</td></tr>
+        <tr><td>1,000,000</td><td class="cost-low">$5.00</td><td>$0.000005</td></tr>
+        <tr><td>10,000,000</td><td class="cost-medium">$50.00</td><td>$0.000005</td></tr>
+    </table>
+
+    <h3>All Features, No LLM ($0.015/1K)</h3>
+    <table>
+        <tr><th>Monthly Visitors</th><th>AWS Cost</th><th>Per Visitor</th></tr>
+        <tr><td>10,000</td><td class="cost-low">$0.15</td><td>$0.000015</td></tr>
+        <tr><td>100,000</td><td class="cost-low">$1.50</td><td>$0.000015</td></tr>
+        <tr><td>500,000</td><td class="cost-low">$7.50</td><td>$0.000015</td></tr>
+        <tr><td>1,000,000</td><td class="cost-low">$15.00</td><td>$0.000015</td></tr>
+        <tr><td>10,000,000</td><td class="cost-medium">$150.00</td><td>$0.000015</td></tr>
+    </table>
+
+    <h3>All Features + LLM ($0.095/1K)</h3>
+    <table>
+        <tr><th>Monthly Visitors</th><th>AWS Cost</th><th>Per Visitor</th></tr>
+        <tr><td>10,000</td><td class="cost-low">$0.95</td><td>$0.000095</td></tr>
+        <tr><td>100,000</td><td class="cost-low">$9.50</td><td>$0.000095</td></tr>
+        <tr><td>500,000</td><td class="cost-medium">$47.50</td><td>$0.000095</td></tr>
+        <tr><td>1,000,000</td><td class="cost-medium">$95.00</td><td>$0.000095</td></tr>
+        <tr><td>10,000,000</td><td class="cost-high">$950.00</td><td>$0.000095</td></tr>
+    </table>
+
+    <h2>💼 Recommended Pricing Tiers</h2>
+    <table>
+        <tr><th>Tier</th><th>Price</th><th>Included Visitors</th><th>AWS Cost</th><th>Gross Margin</th></tr>
+        <tr><td>Starter</td><td>$9/mo</td><td>100K</td><td>$1.50 + $1.10</td><td class="cost-low">71%</td></tr>
+        <tr><td>Growth</td><td>$29/mo</td><td>500K</td><td>$7.50 + $1.10</td><td class="cost-low">70%</td></tr>
+        <tr><td>Scale</td><td>$79/mo</td><td>2M</td><td>$30 + $1.10</td><td class="cost-low">61%</td></tr>
+        <tr><td>Enterprise</td><td>$199/mo</td><td>10M</td><td>$150 + $1.10</td><td class="cost-low">24%*</td></tr>
+    </table>
+    <p><em>*Enterprise includes LLM features, use sparingly</em></p>
+
+    <h2>🎯 Key Insights</h2>
+    
+    <div class="highlight">
+        <h3>Bottom Line for Typical Shopify Store (100K visitors/month)</h3>
+        <ul>
+            <li>Core features: <strong class="cost-low">$0.50/month</strong> AWS cost</li>
+            <li>Full features (no LLM): <strong class="cost-low">$1.50/month</strong> AWS cost</li>
+            <li>Full features (with LLM): <strong class="cost-medium">$9.50/month</strong> AWS cost</li>
+        </ul>
+        <p style="font-size: 1.2em; margin-top: 15px;">Recommended pricing: <strong>$19-29/month</strong> = <strong class="cost-low">90%+ gross margin</strong></p>
+    </div>
+
+    <div class="warning">
+        <h3>⚠️ Cost Optimization Tips</h3>
+        <ul>
+            <li><strong>LLM is the expensive part</strong> - Use only where necessary (10% of traffic max)</li>
+            <li><strong>Use Claude Haiku over Sonnet</strong> - 12× cheaper, sufficient for classification</li>
+            <li><strong>Batch DynamoDB writes</strong> - Reduce write costs by 10×</li>
+            <li><strong>Cache ML predictions</strong> - Reduce Lambda@Edge invocations</li>
+            <li><strong>CloudFront caching</strong> - Aggressive caching reduces origin requests</li>
+        </ul>
+    </div>
+
+    <hr style="border-color: #2a2a3a; margin: 40px 0;">
+    <p style="text-align: center; color: #666;">Generated by Alphy | February 2026</p>
+</body>
+</html>
